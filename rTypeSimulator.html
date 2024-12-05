@@ -1,0 +1,1497 @@
+<script type="text/javascript">
+
+    var arrayRegister = JSON.parse(localStorage.getItem("arrayRegister"));
+    var tmp;
+
+    arrayRegister.unshift("pusher");
+
+    var arrayInstruction = JSON.parse(localStorage.getItem("arrayInstruction"));
+
+    function str_pad (input, padLength, padString, padType) {
+
+        var half = ''
+        var padToGo
+        var _strPadRepeater = function (s, len) {
+            var collect = ''
+            while (collect.length < len) {
+                collect += s
+            }
+            collect = collect.substr(0, len)
+            return collect
+        }
+        input += ''
+        padString = padString !== undefined ? padString : ' '
+        if (padType !== 'STR_PAD_LEFT' && padType !== 'STR_PAD_RIGHT' && padType !== 'STR_PAD_BOTH') {
+            padType = 'STR_PAD_RIGHT'
+        }
+        if ((padToGo = padLength - input.length) > 0) {
+            if (padType === 'STR_PAD_LEFT') {
+                input = _strPadRepeater(padString, padToGo) + input
+            } else if (padType === 'STR_PAD_RIGHT') {
+                input = input + _strPadRepeater(padString, padToGo)
+            } else if (padType === 'STR_PAD_BOTH') {
+                half = _strPadRepeater(padString, Math.ceil(padToGo / 2))
+                input = half + input + half
+                input = input.substr(0, padLength)
+            }
+        }
+        return input
+    }
+
+    function decbin (number) {
+        if (number < 0) {
+            number = 0xFFFFFFFF + number + 1
+        }
+        return parseInt(number, 10)
+            .toString(2)
+    }
+
+    function dechex (number) {
+        if (number < 0) {
+            number = 0xFFFFFFFF + number + 1
+        }
+        return parseInt(number, 10)
+            .toString(16)
+    }
+
+    function tooltip(instruction, regfile)
+    {
+        switch(instruction[0])
+        {
+            case "ADD":
+                var rs = str_pad(decbin(parseInt(instruction[2])), 5, '0', 'STR_PAD_LEFT');
+                var rt = str_pad(decbin(parseInt(instruction[3])), 5, '0', 'STR_PAD_LEFT');
+                var rd = str_pad(decbin(parseInt(instruction[1])), 5, '0', 'STR_PAD_LEFT');
+                var rst = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])]) + parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+                var rsBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])])), 5, '0', 'STR_PAD_LEFT');
+                var rtBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+
+                var returnArray = {
+                    IMFade: "<font color='red'>000000</font> <font color='blue'>" + rs +
+                    "</font> <font color='green'>" + rt + "</font> <font color='purple'>" + rd +
+                    "</font> 00000 <font color='orange'>100000</font><sub>B</sub>",
+                    FadeWaddr1: rd + "<sub>B</sub>",
+                    FadeWaddr2: rd + "<sub>B</sub>",
+                    FadeRaddr2: rt + "<sub>B</sub>",
+                    FadeRaddr1: rs + "<sub>B</sub>",
+                    RFALUtop: rsBin + "<sub>B</sub>",
+                    RFALUbtm: rtBin + "<sub>B</sub>",
+                    FadeMUX: rsBin + "<sub>H</sub>",
+                    ALUWdata: rst + "<sub>B</sub>",
+                    FadeALUCU: "100000<sub>B</sub>",
+                    ALUCUALU: "ALUcntrl = ADD",
+                    CUoutMUX: "JRsel = 0<sub>B</sub>",
+                    CUoutRF: "write enable = 1",
+                    op: "ADD"
+                };
+                return returnArray;
+                break;
+            case "SUB":
+                var rs = str_pad(decbin(parseInt(instruction[2])), 5, '0', 'STR_PAD_LEFT');
+                var rt = str_pad(decbin(parseInt(instruction[3])), 5, '0', 'STR_PAD_LEFT');
+                var rd = str_pad(decbin(parseInt(instruction[1])), 5, '0', 'STR_PAD_LEFT');
+                var rst = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])]) - parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+                var rsBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])])), 5, '0', 'STR_PAD_LEFT');
+                var rtBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+
+                var returnArray = {
+                    IMFade: "<font color='red'>000000</font> <font color='blue'>" + rs +
+                    "</font> <font color='green'>" + rt + "</font> <font color='purple'>" + rd +
+                    "</font> 00000 <font color='orange'>100010</font><sub>B</sub>",
+                    FadeWaddr1: rd + "<sub>B</sub>",
+                    FadeWaddr2: rd + "<sub>B</sub>",
+                    FadeRaddr2: rt + "<sub>B</sub>",
+                    FadeRaddr1: rs + "<sub>B</sub>",
+                    RFALUtop: rsBin + "<sub>B</sub>",
+                    RFALUbtm: rtBin + "<sub>B</sub>",
+                    FadeMUX: rsBin + "<sub>B</sub>",
+                    ALUWdata: rst + "<sub>B</sub>",
+                    FadeALUCU: "100010<sub>B</sub>",
+                    ALUCUALU: "ALUcntrl = SUB",
+                    CUoutMUX: "JRsel = 0<sub>B</sub>",
+                    CUoutRF: "write enable = 1",
+                    op: "SUB"
+                };
+                return returnArray;
+                break;
+            case "AND":
+                var rs = str_pad(decbin(parseInt(instruction[2])), 5, '0', 'STR_PAD_LEFT');
+                var rt = str_pad(decbin(parseInt(instruction[3])), 5, '0', 'STR_PAD_LEFT');
+                var rd = str_pad(decbin(parseInt(instruction[1])), 5, '0', 'STR_PAD_LEFT');
+                var rst = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])]) & parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+                var rsBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])])), 5, '0', 'STR_PAD_LEFT');
+                var rtBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+
+                var returnArray = {
+                    IMFade: "<font color='red'>000000</font> <font color='blue'>" + rs +
+                    "</font> <font color='green'>" + rt + "</font> <font color='purple'>" + rd +
+                    "</font> 00000 <font color='orange'>100100</font><sub>B</sub>",
+                    FadeWaddr1: rd + "<sub>B</sub>",
+                    FadeWaddr2: rd + "<sub>B</sub>",
+                    FadeRaddr2: rt + "<sub>B</sub>",
+                    FadeRaddr1: rs + "<sub>B</sub>",
+                    RFALUtop: rsBin + "<sub>B</sub>",
+                    RFALUbtm: rtBin + "<sub>B</sub>",
+                    FadeMUX: rsBin + "<sub>B</sub>",
+                    ALUWdata: rst + "<sub>B</sub>",
+                    FadeALUCU: "100100<sub>B</sub>",
+                    ALUCUALU: "ALUcntrl = AND",
+                    CUoutMUX: "JRsel = 0<sub>B</sub>",
+                    CUoutRF: "write enable = 1",
+                    op: "AND"
+                };
+                return returnArray;
+                break;
+            case "OR":
+                var rs = str_pad(decbin(parseInt(instruction[2])), 5, '0', 'STR_PAD_LEFT');
+                var rt = str_pad(decbin(parseInt(instruction[3])), 5, '0', 'STR_PAD_LEFT');
+                var rd = str_pad(decbin(parseInt(instruction[1])), 5, '0', 'STR_PAD_LEFT');
+                var rst = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])]) | parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+                var rsBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])])), 5, '0', 'STR_PAD_LEFT');
+                var rtBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+
+                var returnArray = {
+                    IMFade: "<font color='red'>000000</font> <font color='blue'>" + rs +
+                    "</font> <font color='green'>" + rt + "</font> <font color='purple'>" + rd +
+                    "</font> 00000 <font color='orange'>100101</font><sub>B</sub>",
+                    FadeWaddr1: rd + "<sub>B</sub>",
+                    FadeWaddr2: rd + "<sub>B</sub>",
+                    FadeRaddr2: rt + "<sub>B</sub>",
+                    FadeRaddr1: rs + "<sub>B</sub>",
+                    RFALUtop: rsBin + "<sub>B</sub>",
+                    RFALUbtm: rtBin + "<sub>B</sub>",
+                    FadeMUX: rsBin + "<sub>B</sub>",
+                    ALUWdata: rst + "<sub>B</sub>",
+                    FadeALUCU: "100101<sub>B</sub>",
+                    ALUCUALU: "ALUcntrl = OR",
+                    CUoutMUX: "JRsel = 0<sub>B</sub>",
+                    CUoutRF: "write enable = 1",
+                    op: "OR"
+                };
+                return returnArray;
+                break;
+            case "SLT":
+
+                var rs = str_pad(decbin(parseInt(instruction[2])), 5, '0', 'STR_PAD_LEFT');
+                var rt = str_pad(decbin(parseInt(instruction[3])), 5, '0', 'STR_PAD_LEFT');
+                var rd = str_pad(decbin(parseInt(instruction[1])), 5, '0', 'STR_PAD_LEFT');
+
+                var rsBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[2])])), 5, '0', 'STR_PAD_LEFT');
+                var rtBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[3])])), 5, '0', 'STR_PAD_LEFT');
+
+                if (parseInt(regfile[parseInt(instruction[2])]) < parseInt(regfile[parseInt(instruction[3])]))
+                {
+                    var rst = str_pad(1, 5, '0', 'STR_PAD_LEFT');
+                }
+                else
+                {
+                    var rst = str_pad(0, 5, '0', 'STR_PAD_LEFT');
+                }
+
+                var returnArray = {
+                    IMFade: "<font color='red'>000000</font> <font color='blue'>" + rs +
+                    "</font> <font color='green'>" + rt + "</font> <font color='purple'>" + rd +
+                    "</font> 00000 <font color='orange'>101010</font><sub>B</sub>",
+                    FadeWaddr1: rd + "<sub>B</sub>",
+                    FadeWaddr2: rd + "<sub>B</sub>",
+                    FadeRaddr2: rt + "<sub>B</sub>",
+                    FadeRaddr1: rs + "<sub>B</sub>",
+                    RFALUtop: rsBin + "<sub>B</sub>",
+                    RFALUbtm: rtBin + "<sub>B</sub>",
+                    FadeMUX: rsBin + "<sub>B</sub>",
+                    ALUWdata: rst + "<sub>B</sub>",
+                    FadeALUCU: "101010<sub>B</sub>",
+                    ALUCUALU: "ALUcntrl = SLT",
+                    CUoutMUX: "JRsel = 0<sub>B</sub>",
+                    CUoutRF: "write enable = 1",
+                    op: "SLT"
+                };
+                return returnArray;
+                break;
+            case "JR":
+                var rs = str_pad(decbin(parseInt(instruction[1])), 5, '0', 'STR_PAD_LEFT');
+                var rsBin = str_pad(decbin(parseInt(regfile[parseInt(instruction[1])])), 5, '0', 'STR_PAD_LEFT');
+                var jr = str_pad(dechex(parseInt(regfile[parseInt(instruction[1])])), 8, '0', 'STR_PAD_LEFT').toUpperCase();
+
+                var returnArray = {
+                    IMFade: "000000 <font color='blue'>" + rs +
+                    "</font> 00000 00000 00000 " + "<font color='orange'>001000</font><sub>B</sub>",
+                    FadeWaddr1: 0,
+                    FadeWaddr2: 0,
+                    FadeRaddr2: 0,
+                    FadeRaddr1: rs + "<sub>B</sub>",
+                    RFALUtop: rsBin + "<sub>B</sub>",
+                    RFALUbtm: 0,
+                    FadeMUX: rsBin + "<sub>B</sub>",
+                    MUXPC: jr + "<sub>H</sub>",
+                    ALUWdata: 0,
+                    FadeALUCU: "001000<sub>B</sub>",
+                    ALUCUALU: 0,
+                    CUoutMUX: "JRsel = 1<sub>B</sub>",
+                    CUoutRF: 0,
+                    op: "JR"
+                };
+                return returnArray;
+                break;
+        }
+    }
+
+    function displayer(instruction)
+    {
+        switch (instruction[0]) {
+            case 'ADD':
+            case 'SUB':
+            case 'AND':
+            case 'OR':
+            case 'SLT':
+                document.write("<div class='data a-1 z-1' id='PCIM' style='position: absolute; top: 378px; left: 93px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-1' id='PCAdder' style='position: absolute; top: 378px; left: 153px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-1' id='DataAdder' style='position: absolute; top: 180px; left: 153px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3' id='AdderMUX' style='position: absolute; top: 203px; left: 273px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='IMFade' style='position: absolute; top: 378px; left: 283px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeALUCU' style='position: absolute; top: 353px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeWaddr1' style='position: absolute; top: 235px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-4' id='FadeWaddr2' style='position: absolute; top: 235px; left: 393px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2; opacity: 0;' data-variation='very wide'></div>" +
+                "<div class='data a-2 z-2' id='FadeRaddr2' style='position: absolute; top: 208px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeRaddr1' style='position: absolute; top: 180px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeCU' style='position: absolute; top: 180px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3' id='RFALUtop' style='position: absolute; top: 204px; left: 510px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3 z-3' id='RFALUbtm' style='position: absolute; top: 238px; left: 510px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3' id='FadeMUX' style='position: absolute; top: 204px; left: 557px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-4 z-4' id='ALUWdata' style='position: absolute; top: 219px; left: 688px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-4' id='MUXPC' style='position: absolute; top: 49px; left: 251px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-3' id='CUoutALUCU' style='position: absolute; top: 74px; left: 420px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-3' id='CUoutMUX' style='position: absolute; top: 93px; left: 420px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-4' id='CUoutRF' style='position: absolute; top: 113px; left: 420px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-3' id='CUinALUCU' style='position: absolute; top: 352px; left: 730px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-3' id='ALUCUALU' style='position: absolute; top: 323px; left: 658px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-4' id='CUinRF' style='position: absolute; top: 323px; left: 477px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-3' id='CUinMUX' style='position: absolute; top: 140px; left: 259px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>"
+                );
+                break;
+            case 'JR':
+                document.write("<div class='data a-1 z-1' id='PCIM' style='position: absolute; top: 378px; left: 93px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-1' id='PCAdder' style='position: absolute; top: 378px; left: 153px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-1' id='DataAdder' style='position: absolute; top: 180px; left: 153px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3' id='AdderMUX' style='position: absolute; top: 203px; left: 273px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='IMFade' style='position: absolute; top: 378px; left: 283px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeALUCU' style='position: absolute; top: 353px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeWaddr1' style='position: absolute; top: 235px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-4' id='FadeWaddr2' style='position: absolute; top: 235px; left: 393px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeRaddr2' style='position: absolute; top: 208px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2 z-2' id='FadeRaddr1' style='position: absolute; top: 180px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-2' id='FadeCU' style='position: absolute; top: 180px; left: 348px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3 z-3' id='RFALUtop' style='position: absolute; top: 204px; left: 510px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3' id='RFALUbtm' style='position: absolute; top: 238px; left: 510px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-3' id='FadeMUX' style='position: absolute; top: 204px; left: 557px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-4' id='ALUWdata' style='position: absolute; top: 219px; left: 688px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='data a-4 z-4' id='MUXPC' style='position: absolute; top: 49px; left: 251px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-3' id='CUoutMUX' style='position: absolute; top: 93px; left: 420px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>" +
+                "<div class='cdata a-3' id='CUinMUX' style='position: absolute; top: 140px; left: 259px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 2;' data-variation='very wide'></div>"
+                );
+                break;
+        }
+    }
+
+
+    var tooltipArray = tooltip(arrayInstruction, arrayRegister);
+
+
+    if (!("MUXPC" in tooltipArray)) {
+        tooltipArray['MUXPC'] = "00000004<sub>H</sub>";
+    }
+
+
+
+</script>
+
+<html>
+
+<head><title>MIPS 101</title>
+    <script language="javascript" src="jquery.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+
+    <style>
+        #PCIM {
+            -webkit-animation: PCIM 5s 1;
+            -moz-animation: PCIM 5s 1;
+            -o-animation: PCIM 5s 1;
+            animation: PCIM 5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #PCAdder {
+            -webkit-animation: PCAdder 2.5s 1;
+            -moz-animation: PCAdder 2.5s 1;
+            -o-animation: PCAdder 2.5s 1;
+            animation: PCAdder 2.5s 1;
+            animation-delay: 2.5s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #DataAdder {
+            -webkit-animation: DataAdder 5s 1;
+            -moz-animation: DataAdder 5s 1;
+            -o-animation: DataAdder 5s 1;
+            animation: DataAdder 5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #AdderMUX {
+            -webkit-animation: AdderMUX 5s 1;
+            -moz-animation: AdderMUX 5s 1;
+            -o-animation: AdderMUX 5s 1;
+            animation: AdderMUX 5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #IMFade {
+            -webkit-animation: IMFade 3s 1;
+            -moz-animation: IMFade 3s 1;
+            -o-animation: IMFade 3s 1;
+            animation: IMFade 3s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #FadeALUCU {
+            -webkit-animation: FadeALUCU 3.3s 1;
+            -moz-animation: FadeALUCU 3.3s 1;
+            -o-animation: FadeALUCU 3.3s 1;
+            animation: FadeALUCU 3.3s 1;
+            animation-delay: 1.7s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #FadeWaddr1 {
+            -webkit-animation: FadeWaddr1 2.5s 1;
+            -moz-animation: FadeWaddr1 2.5s 1;
+            -o-animation: FadeWaddr1 2.5s 1;
+            animation: FadeWaddr1 2.5s 1;
+            animation-delay: 2.5s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #FadeWaddr2 {
+            -webkit-animation: FadeWaddr2 5s 1;
+            -moz-animation: FadeWaddr2 5s 1;
+            -o-animation: FadeWaddr2 5s 1;
+            animation: FadeWaddr2 5s 1;
+            position: absolute;
+            z-index: 2;
+            opacity: 0;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+
+        }
+
+        #FadeRaddr2 {
+            -webkit-animation: FadeRaddr2 2.2s 1;
+            -moz-animation: FadeRaddr2 2.2s 1;
+            -o-animation: FadeRaddr2 2.2s 1;
+            animation: FadeRaddr2 2.2s 1;
+            animation-delay: 2.8s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #FadeRaddr1 {
+            -webkit-animation: FadeRaddr1 2s 1;
+            -moz-animation: FadeRaddr1 2s 1;
+            -o-animation: FadeRaddr1 2s 1;
+            animation: FadeRaddr1 2s 1;
+            animation-delay: 3s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #FadeCU {
+            -webkit-animation: FadeCU 2s 1;
+            -moz-animation: FadeCU 2s 1;
+            -o-animation: FadeCU 2s 1;
+            animation: FadeCU 2s 1;
+            animation-delay: 3s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #RFALUtop {
+            -webkit-animation: RFALUtop 5s 1;
+            -moz-animation: RFALUtop 5s 1;
+            -o-animation: RFALUtop 5s 1;
+            animation: RFALUtop 5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #RFALUbtm {
+            -webkit-animation: RFALUbtm 5s 1;
+            -moz-animation: RFALUbtm 5s 1;
+            -o-animation: RFALUbtm 5s 1;
+            animation: RFALUbtm 5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #FadeMUX {
+            -webkit-animation: FadeMUX 2.8s 1;
+            -moz-animation: FadeMUX 2.8s 1;
+            -o-animation: FadeMUX 2.8s 1;
+            animation: FadeMUX 2.8s 1;
+            animation-delay: 2.2s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #ALUWdata {
+            -webkit-animation: ALUWdata 5s 1;
+            -moz-animation: ALUWdata 5s 1;
+            -o-animation: ALUWdata 5s 1;
+            animation: ALUWdata 5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #MUXPC {
+            -webkit-animation: MUXPC 5s 1;
+            -moz-animation: MUXPC 5s 1;
+            -o-animation: MUXPC 5s 1;
+            animation: MUXPC 5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #CUoutALUCU {
+            -webkit-animation: CUoutALUCU 1.66s 1;
+            -moz-animation: CUoutALUCU 1.66s 1;
+            -o-animation: CUoutALUCU 1.66s 1;
+            animation: CUoutALUCU 1.66s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #CUoutMUX {
+            -webkit-animation: CUoutMUX 2.5s 1;
+            -moz-animation: CUoutMUX 2.5s 1;
+            -o-animation: CUoutMUX 2.5s 1;
+            animation: CUoutMUX 2.5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #CUoutRF {
+            -webkit-animation: CUoutRF 2.5s 1;
+            -moz-animation: CUoutRF 2.5s 1;
+            -o-animation: CUoutRF 2.5s 1;
+            animation: CUoutRF 2.5s 1;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #CUinALUCU {
+            -webkit-animation: CUinALUCU 1.66s 1;
+            -moz-animation: CUinALUCU 1.66s 1;
+            -o-animation: CUinALUCU 1.66s 1;
+            animation: CUinALUCU 1.66s 1;
+            animation-delay: 1.66s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #ALUCUALU {
+            -webkit-animation: ALUCUALU 1.66s 1;
+            -moz-animation: ALUCUALU 1.66s 1;
+            -o-animation: ALUCUALU 1.66s 1;
+            animation: ALUCUALU 1.66s 1;
+            animation-delay: 3.32s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #CUinRF {
+            -webkit-animation: CUinRF 2.5s 1;
+            -moz-animation: CUinRF 2.5s 1;
+            -o-animation: CUinRF 2.5s 1;
+            animation: CUinRF 2.5s 1;
+            animation-delay: 2.5s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        #CUinMUX {
+            -webkit-animation: CUinMUX 2.5s 1;
+            -moz-animation: CUinMUX 2.5s 1;
+            -o-animation: CUinMUX 2.5s 1;
+            animation: CUinMUX 2.5s 1;
+            animation-delay: 2.5s;
+            position: absolute;
+            z-index: 2;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        @keyframes PCIM {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(117px, 0px, 0px);
+            }
+        }
+
+        @keyframes PCAdder {
+            0% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate3d(0px, -150px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(50px, -150px, 0px);
+            }
+        }
+
+        @keyframes DataAdder {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(50px, 0px, 0px);
+            }
+        }
+
+        @keyframes AdderMUX {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            50% {
+                transform: translate3d(40px, 0px, 0px);
+            }
+            75% {
+                transform: translate3d(40px, -138px, 0px);
+            }
+            100% {
+                transform: translate3d(-7px, -138px, 0px);
+            }
+        }
+
+        @keyframes IMFade {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            50% {
+                transform: translate3d(65px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(65px, -198px, 0px);
+            }
+        }
+
+        @keyframes FadeALUCU {
+            0% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(310px, 0px, 0px);
+            }
+        }
+
+        @keyframes FadeWaddr1 {
+            0% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(45px, 0px, 0px);
+            }
+        }
+
+        @keyframes FadeWaddr2 {
+            0% {
+                opacity: 0;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(45px, 0px, 0px);
+            }
+        }
+
+        @keyframes FadeRaddr2 {
+            0% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(90px, 0px, 0px);
+            }
+        }
+
+        @keyframes FadeRaddr1 {
+            0% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            99% {
+                opacity: 1;
+                transform: translate3d(90px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(90px, 4px, 0px);
+            }
+        }
+
+        @keyframes FadeCU {
+            0% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate3d(0px, -86px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(60px, -86px, 0px);
+            }
+        }
+
+        @keyframes RFALUtop {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(113px, 0px, 0px);
+            }
+        }
+
+        @keyframes RFALUbtm {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(113px, 0px, 0px);
+            }
+        }
+
+        @keyframes FadeMUX {
+            0% {
+                opacity: 1;
+                transform: translate3D(0px, 0px, 0px);
+            }
+            50% {
+                opacity: 1;
+                transform: translate3d(0px, -172px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(-292px, -172px, 0px);
+            }
+        }
+
+        @keyframes ALUWdata {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            20% {
+                transform: translate3d(64px, 0px, 0px);
+            }
+            40% {
+                transform: translate3d(64px, 190px, 0px);
+            }
+            60% {
+                transform: translate3d(-286px, 190px, 0px);
+            }
+            80% {
+                transform: translate3d(-286px, 43px, 0px);
+            }
+            99% {
+                transform: translate3d(-250px, 43px, 0px);
+            }
+            100% {
+                transform: translate3d(-250px, 38px, 0px);
+            }
+        }
+
+        @keyframes MUXPC {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            50% {
+                transform: translate3d(-242px, 0px, 0px);
+            }
+            75% {
+                transform: translate3d(-242px, 329px, 0px);
+            }
+            100% {
+                transform: translate3d(-178px, 329px, 0px);
+            }
+        }
+
+        @keyframes CUoutALUCU {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+            80% {
+                transform: translate3d(64px, 0px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(80px, 0px, 0px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes CUoutMUX {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+            80% {
+                transform: translate3d(64px, 0px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(80px, 0px, 0px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes CUoutRF {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+            80% {
+                transform: translate3d(64px, 0px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(80px, 0px, 0px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes CUinALUCU {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 0;
+            }
+            20% {
+                transform: translate3d(-14px, 0px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(-71px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes ALUCUALU {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(0px, -77px, 0px);
+            }
+        }
+
+        @keyframes CUinRF {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 0;
+            }
+            20% {
+                transform: translate3d(0px, -14px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(0px, -70px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes CUinMUX {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 0;
+            }
+            20% {
+                transform: translate3d(0px, -12px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(0px, -60px, 0px);
+                opacity: 1;
+            }
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        $(init);
+
+        function init() {
+
+            $('.ui.accordion')
+                .accordion();
+
+        }
+        ;
+
+        $(document).ready(function () {
+
+
+            $('.data')
+                .popup({
+                    on: 'hover'
+                });
+
+            $('.cdata')
+                .popup({
+                    on: 'hover'
+                });
+
+
+            $('#PCIM').attr("data-html", "00000000<sub>H</sub>");
+            $('#PCAdder').attr("data-html", "00000000<sub>H</sub>");
+            $('#DataAdder').attr("data-html", "00000004<sub>H</sub>");
+            $('#AdderMUX').attr("data-html", "00000004<sub>H</sub>");
+            $('#FadeCU').attr("data-html", "000000<sub>B</sub>");
+            $('#CUoutALUCU').attr("data-html", "ALUop");
+            $('#CUinALUCU').attr("data-html", "ALUop");
+
+
+            var instruction = arrayInstruction[0];
+            switch (instruction) {
+                case "JR":
+                    $('#IMFade').attr("data-html", tooltipArray['IMFade']);
+                    $('#FadeRaddr1').attr("data-html", tooltipArray['FadeRaddr1']);
+                    $('#RFALUtop').attr("data-html", tooltipArray['RFALUtop']);
+                    $('#FadeMUX').attr("data-html", tooltipArray['FadeMUX']);
+                    $('#MUXPC').attr("data-html", tooltipArray['MUXPC']);
+                    $('#FadeALUCU').attr("data-html", tooltipArray['FadeALUCU']);
+                    $('#FadeWaddr1').hide();
+                    $('#FadeWaddr2').hide();
+                    $('#FadeRaddr2').hide();
+                    $('#ALUWdata').hide();
+                    $('#RFALUbtm').hide();
+                    $('#CUoutMUX').attr("data-html", tooltipArray['CUoutMUX']);
+                    $('#CUinMUX').attr("data-html", tooltipArray['CUoutMUX']);
+                    break;
+                case "ADD":
+                case "SUB":
+                case "AND":
+                case "OR":
+                case "SLT":
+                    $('#IMFade').attr("data-html", tooltipArray["IMFade"]);
+                    $('#FadeWaddr1').attr("data-html", tooltipArray['FadeWaddr1']);
+                    $('#FadeWaddr2').attr("data-html", tooltipArray['FadeWaddr2']);
+                    $('#FadeRaddr2').attr("data-html", tooltipArray['FadeRaddr2']);
+                    $('#FadeRaddr1').attr("data-html", tooltipArray['FadeRaddr1']);
+                    $('#RFALUtop').attr("data-html", tooltipArray['RFALUtop']);
+                    $('#RFALUbtm').attr("data-html", tooltipArray['RFALUbtm']);
+                    $('#FadeMUX').attr("data-html", tooltipArray['FadeMUX']);
+                    $('#ALUWdata').attr("data-html", tooltipArray['ALUWdata']);
+                    $('#MUXPC').attr("data-html", tooltipArray['MUXPC']);
+                    $('#FadeALUCU').attr("data-html", tooltipArray['FadeALUCU']);
+                    $('#ALUCUALU').attr("data-html", tooltipArray['ALUCUALU']);
+                    $('#CUoutRF').attr("data-html", tooltipArray['CUoutRF']);
+                    $('#CUinRF').attr("data-html", tooltipArray['CUoutRF']);
+                    $('#CUoutMUX').attr("data-html", tooltipArray['CUoutMUX']);
+                    $('#CUinMUX').attr("data-html", tooltipArray['CUoutMUX']);
+                    break;
+            }
+
+            $('.circular.ui.icon.button.1').click(function () {
+                $('.a-1').css("animation-play-state", "running");
+                $('.circular.ui.icon.button.1').removeClass("1").addClass("2").addClass("disabled");
+                $('.circular.ui.icon.button.10').removeClass("disabled");
+                binding1();
+            });
+
+            function binding1() {
+                $('.circular.ui.icon.button.2').click(function () {
+                    $('.a-2').css("animation-play-state", "running");
+                    $('#pause').removeClass("disabled");
+                    $('.circular.ui.icon.button.2').removeClass("2").addClass("3").addClass("disabled");
+                    $('#IM').popup('hide');
+                    $('#Adder').popup('hide');
+
+                    binding2();
+                });
+            }
+
+            function binding2() {
+                $('.circular.ui.icon.button.3').click(function () {
+                    $('#pause').removeClass("disabled");
+                    $('.a-3').css("animation-play-state", "running");
+                    $('.circular.ui.icon.button.3').removeClass("3").addClass("4").addClass("disabled");
+                    $('#RF').popup('hide');
+
+                    binding3();
+                });
+            }
+
+            function binding3() {
+                $('.circular.ui.icon.button.4').click(function () {
+                    $('#pause').removeClass("disabled");
+                    $('.a-4').css("animation-play-state", "running");
+                    $('#FadeWaddr1').hide();
+                    $('#ALU').popup('hide');
+                    $('#MUX').popup('hide');
+                    $('#ALUCNTRL').popup('hide');
+                });
+            }
+
+            $('.circular.ui.icon.button.10').click(function () {
+                checker();
+            });
+
+            function checker() {
+                if ($('#pauseButton').hasClass("pause")) {
+                    $('#pauseButton').removeClass("pause").addClass("play");
+                    $('#play').addClass("disabled");
+                    if ($('.a-1').css('animation-play-state').toLowerCase() == 'running') {
+                        $('.a-1').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("1");
+
+                    }
+                    if ($('.a-2').css('animation-play-state').toLowerCase() == 'running') {
+                        $('.a-2').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("2");
+                    }
+
+                    if ($('.a-3').css('animation-play-state').toLowerCase() == 'running') {
+                        $('.a-3').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("3");
+                    }
+
+                    if ($('.a-4').css('animation-play-state').toLowerCase() == 'running') {
+                        $('.a-4').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("4");
+                    }
+
+                } else if ($('#pauseButton').hasClass("play")) {
+                    $('#pauseButton').removeClass("play").addClass("pause");
+                    if ($('#superToggler').hasClass("1")) {
+                        $('.a-1').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("1");
+                    }
+                    if ($('#superToggler').hasClass("2")) {
+                        $('.a-2').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("2");
+                    }
+                    if ($('#superToggler').hasClass("3")) {
+                        $('.a-3').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("3");
+                    }
+                    if ($('#superToggler').hasClass("4")) {
+                        $('.a-4').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("4");
+                    }
+
+                }
+            }
+
+
+            $(".z-1").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+
+                $('#pause').addClass("disabled");
+                $('#play').removeClass("disabled");
+                $('#IM').attr("data-html", "Nạp lệnh từ 00000000<sub>H</sub><br>" + tooltipArray['IMFade']);
+                $('#IM').popup('show');
+                $('#Adder').attr("data-html", "Cộng 00000004<sub>H</sub> vào 00000000<sub>H</sub>");
+                $('#Adder').popup('show');
+            });
+
+            $(".z-2").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+
+                $('#pause').addClass("disabled");
+                $('#play').removeClass("disabled");
+                switch (instruction) {
+                    case "ADD":
+                    case "SUB":
+                    case "AND":
+                    case "OR":
+                    case "SLT":
+                        $('#RF').attr("data-html", "Đọc thanh ghi " + tooltipArray['FadeRaddr1'] + " có giá trị là " + tooltipArray['RFALUtop'] + "<br>Đọc thanh ghi " + tooltipArray['FadeRaddr2'] + " có giá trị là " + tooltipArray['RFALUbtm']);
+                        break;
+                    case "JR":
+                        $('#RF').attr("data-html", "Đọc thanh ghi " + tooltipArray['FadeRaddr1'] + " có giá trị là " + tooltipArray['RFALUtop']);
+                        break;
+                }
+                $('#RF').popup('show');
+            });
+
+            $(".z-3").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+
+                $('#pause').addClass("disabled");
+                $('#play').removeClass("disabled");
+                switch (instruction) {
+                    case "ADD":
+                    case "SUB":
+                    case "AND":
+                    case "OR":
+                    case "SLT":
+                        $('#ALU').attr("data-html", "Giá trị thanh ghi nguồn 1: " + tooltipArray['RFALUtop'] + "<br>Giá trị thanh ghi nguồn 2: " + tooltipArray['RFALUbtm'] + "<br>Phép tính: " + tooltipArray['op'] + "<br>Đầu ra: " + tooltipArray['ALUWdata']);
+                        $('#ALU').popup('show');
+                        $('#MUX').attr("data-html", "0: 00000004<sub>H</sub><br>1: " + tooltipArray['RFALUtop'] + "<br>JRsel: 0<sub>B</sub>");
+                        $('#MUX').popup('show');
+                        $('#ALUCNTRL').attr("data-html", "Các bit chức năng: " + tooltipArray['FadeALUCU'] + "<br>" + tooltipArray['ALUCUALU']);
+                        $('#ALUCNTRL').popup('show');
+                        break;
+                    case "JR":
+                        $('#MUX').attr("data-html", "0: 00000004<sub>H</sub><br>1: " + tooltipArray['RFALUtop'] + "<br>JRsel: 1<sub>B</sub>");
+                        $('#MUX').popup('show');
+                        break;
+                }
+
+
+            });
+
+            $(".z-4").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+
+                $('#pause').addClass("disabled");
+                switch (instruction) {
+                    case "ADD":
+                    case "SUB":
+                    case "AND":
+                    case "OR":
+                    case "SLT":
+                        $('#PC').attr("data-html", "Giá trị PC mới: 00000004<sub>H</sub>");
+                        $('#RF').attr("data-html", "Giá trị của " + tooltipArray['ALUWdata'] + " được ghi vào " + decbin(parseInt(arrayInstruction[1])) + "<sub>B</sub>");
+                        $('#RF').popup('show');
+                        break;
+                    case "JR":
+                        $('#PC').attr("data-html", "Giá trị PC mới: " + tooltipArray['MUXPC']);
+
+                        break;
+                }
+                $('#PC').popup('show');
+
+            });
+
+            $("#IMFade").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#IMFade').css("opacity", "0");
+            });
+
+
+        });
+    </script>
+
+</head>
+
+<body style="background-color: #F2F2F2;">
+
+
+<div align="center">
+    <a href="index.html"><img src="banner2.png"></a>
+</div>
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="active title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="active content">
+                    <div class="menu"><a class="item" href="rDatapath.html">Đường dẫn cơ bản</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="active item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+                        <a class="item" href="instruction.html">Các lệnh 101</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+        <div class="ui piled compact segment">
+            <div style="position:relative" align="left"><img src="datapaths/addDatapath2.png" style=" z-index:2; width: 775px; height: 450px;">
+                <div id="Adder"
+                     style="position: absolute; top: 165px; left: 200px; height: 102px; width: 102px; background-image:url(icons/Adder2.png); background-size: 102px 102px; z-index: 4;"
+                     data-html="<strong>Add 00000004<sub>H</sub> to 00000100<sub>H</sub></strong>"></div>
+                <div id="MUX"
+                     style="position: absolute; top: 11px; left: 250px; height: 102px; width: 45px; background-image: url(icons/vMUX2.png); background-size: 45px 102px;z-index: 4;"
+                     data-variation="very wide" data-position="left center"></div>
+                <div id="IM"
+                     style="position: absolute; top: 340px; left: 209px; height: 102px; width: 102px; background-image: url(icons/IM2.png); background-size: 102px 102px; z-index: 4;"
+                     data-variation="very wide"></div>
+                <div id="PC"
+                     style="position: absolute; top: 339px; left: 70px; height: 102px; width: 51px; background-image: url(icons/vPC2.png); background-size: 51px 102px; z-index: 4;"
+                     data-variation="very wide"></div>
+                <div id="RF"
+                     style="position: absolute; top: 183px; left: 436px; height: 102px; width: 102px; background-image: url(icons/RF2.png); background-size: 102px 102px; z-index: 4;"
+                     data-variation="very wide"></div>
+                <div id="ALU"
+                     style="position: absolute; top: 182px; left: 615px; height: 102px; width: 102px; background-image: url(icons/ALU2.png); background-size: 102px 102px; z-index: 4;"
+                     data-variation="very wide" data-position="right center"></div>
+                <div id="CU"
+                     style="position: absolute; top: 56px; left: 381px; height: 102px; width: 102px; background-image: url(icons/CU2.png); background-size: 102px 102px; z-index: 4;"
+                     data-variation="very wide"></div>
+                <div id="ALUCNTRL"
+                     style="position: absolute; top: 299px; left: 645px; height: 102px; width: 51px; background-image: url(icons/ALUCNTRL2.png); background-size: 51px 102px; z-index: 4;"
+                     data-variation="very wide" data-position="left center"></div>
+
+
+                <script type="text/javascript">displayer(arrayInstruction);</script>
+
+                <button class="circular ui icon button 1" id="play"
+                        style="position: absolute; z-index: 6; left: 675px; top: 70px;"><i
+                        class="step forward icon"></i></button>
+                <button class="circular ui icon button 10 disabled" id="pause"
+                        style="position: absolute; z-index: 6; left: 625px; top: 70px;"><i class="pause icon"
+                                                                                           id="pauseButton"></i>
+                </button>
+
+
+            </div>
+            <div id="superToggler" class="toggler"></div>
+
+            <div class="ui icon message"><i class="info circle icon"></i>
+                <div class="content">
+                    Lệnh đang được mô phỏng là:
+
+
+                        <script type="text/javascript">
+
+                            var before;
+
+                            if (arrayRegister[arrayInstruction[1]] == "")
+                            {
+                                before = 0;
+                            }
+                            else
+                            {
+                                before = decbin(arrayRegister[parseInt(arrayInstruction[1])]);
+                            }
+                            if (arrayRegister[arrayInstruction[2]] == "")
+                            {
+                                info1 = 0;
+                            }
+                            else
+                            {
+                                info1 = decbin(arrayRegister[parseInt(arrayInstruction[2])]);
+                            }
+
+                            if (arrayRegister[arrayInstruction[3]] == "")
+                            {
+                                info2 = 0;
+                            }
+                            else
+                            {
+                                info2 = decbin(arrayRegister[parseInt(arrayInstruction[3])]);
+                            }
+                            switch(arrayInstruction[0])
+                            {
+
+                                case "ADD":
+                                case "SUB":
+                                case "AND":
+                                case "OR":
+                                case "SLT":
+                                    document.write("<div class='ui floating message'><p align='center'>" + arrayInstruction[0] + " $" + arrayInstruction[1] + ", $" + arrayInstruction[2] + ", $" + arrayInstruction[3] + "</p></div>");
+                                    document.write("<div class='ui orange segment'>Trước khi thực thi: <strong>$" + arrayInstruction[1] + " => " + before + "<sub>B</sub></strong>,  $" + arrayInstruction[2] + " => " + info1 + "<sub>B</sub>,  $" + arrayInstruction[3] + " => " + info2 + "<sub>B</sub></div>");
+                                    document.write("<div class='ui green segment'>Sau khi thực thi: <strong>$" + arrayInstruction[1] + " => " + tooltipArray['ALUWdata'] + "</strong></div>");
+                                    break;
+                                case "JR":
+                                    document.write("<div class='ui floating message'><p align='center'>" + arrayInstruction[0] + " $" + arrayInstruction[1] + "</p></div>");
+                                    document.write("<div class='ui orange segment'>Trước khi thực thi: $" + arrayInstruction[1] + " => " + before + "<sub>B</sub></div>");
+                                    document.write("<div class='ui red segment'><strong>Không có thay đổi nào đối với các thanh ghi.</strong></div>");
+                                    break;
+                            }
+                        </script>
+                    </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+</body>

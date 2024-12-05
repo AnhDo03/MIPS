@@ -1,0 +1,1236 @@
+<html>
+
+<head><title>MIPS 101</title>
+    <script language="javascript" src="jquery.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <style>
+        #data1 {
+            -webkit-animation: pathing1 10s 1;
+            -moz-animation: pathing1 10s 1;
+            -o-animation: pathing1 10s 1;
+            animation: pathing1 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #data2 {
+            -webkit-animation: pathing2 8.75s 1;
+            -moz-animation: pathing2 8.75s 1;
+            -o-animation: pathing2 8.75s 1;
+            animation: pathing2 8.75s 1;
+            position: absolute;
+            animation-delay: 1.25s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #data3 {
+            -webkit-animation: pathing3 10s 1;
+            -moz-animation: pathing3 10s 1;
+            -o-animation: pathing3 10s 1;
+            animation: pathing3 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data4 {
+            -webkit-animation: pathing4 5.5s 1;
+            -moz-animation: pathing4 5.5s 1;
+            -o-animation: pathing4 5.5s 1;
+            animation: pathing4 5.5s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data5 {
+            -webkit-animation: pathing5 4.5s 1;
+            -moz-animation: pathing5 4.5s 1;
+            -o-animation: pathing5 4.5s 1;
+            animation: pathing5 4.5s 1;
+            position: absolute;
+            animation-delay: 5.5s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data6 {
+            -webkit-animation: pathing6 4.6s 1;
+            -moz-animation: pathing6 4.6s 1;
+            -o-animation: pathing6 4.6s 1;
+            animation: pathing6 4.6s 1;
+            position: absolute;
+            animation-delay: 5.45s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data7 {
+            -webkit-animation: pathing7 10s 1;
+            -moz-animation: pathing7 10s 1;
+            -o-animation: pathing7 10s 1;
+            animation: pathing7 10s 1;
+            position: absolute;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data8 {
+            -webkit-animation: pathing8 8.4s 1;
+            -moz-animation: pathing8 8.4s 1;
+            -o-animation: pathing8 8.4s 1;
+            animation: pathing8 8.4s 1;
+            position: absolute;
+            animation-delay: 1.6s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #data9 {
+            -webkit-animation: pathing9 10s 1;
+            -moz-animation: pathing9 10s 1;
+            -o-animation: pathing9 10s 1;
+            animation: pathing9 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data10 {
+            -webkit-animation: pathing10 10s 1;
+            -moz-animation: pathing10 10s 1;
+            -o-animation: pathing10 10s 1;
+            animation: pathing10 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data11 {
+            -webkit-animation: pathing11 10s 1;
+            -moz-animation: pathing11 10s 1;
+            -o-animation: pathing11 10s 1;
+            animation: pathing11 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data12 {
+            -webkit-animation: pathing12 10s 1;
+            -moz-animation: pathing12 10s 1;
+            -o-animation: pathing12 10s 1;
+            animation: pathing12 10s 1;
+            position: absolute;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #cdata1 {
+            -webkit-animation: cpathing1 5s 1;
+            -moz-animation: cpathing1 5s 1;
+            -o-animation: cpathing1 5s 1;
+            animation: cpathing1 5s 1;
+            position: absolute;
+            z-index: 3;
+            opacity: 0;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #cdata2 {
+            -webkit-animation: cpathing2 5s 1;
+            -moz-animation: cpathing2 5s 1;
+            -o-animation: cpathing2 5s 1;
+            animation: cpathing2 5s 1;
+            animation-delay: 5s;
+            opacity: 0;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        @keyframes pathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            13% {
+                transform: translate3d(67px, 0px, 0px);
+            }
+            38% {
+                transform: translate3d(67px, -99px, 0px);
+            }
+            63% {
+                transform: translate3d(-57px, -99px, 0px);
+            }
+            78% {
+                transform: translate3d(-57px, -195px, 0px);
+            }
+            100% {
+                transform: translate3d(3px, -195px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            25% {
+                transform: translate3d(61px, 0px, 0px);
+            }
+            75% {
+                transform: translate3d(61px, -145px, 0px);
+            }
+            100% {
+                transform: translate3d(135px, -145px, 0px);
+            }
+        }
+
+        @keyframes pathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(74px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(74px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(68px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes pathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(68px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes pathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(129px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            30% {
+                transform: translate3d(33px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(33px, -72px, 0px);
+            }
+        }
+
+        @keyframes pathing5 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(0px, -120px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing5 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            30% {
+                transform: translate3d(0px, 47px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(112px, 47px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing6 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(95px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing6 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(89px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing7 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            70% {
+                transform: translate3d(206px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(206px, -85px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing7 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(89px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing8 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            60% {
+                transform: translate3d(0px, 132px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(27px, 132px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing8 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            80% {
+                transform: translate3d(0px, -170px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(-45px, -170px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing9 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            80% {
+                transform: translate3d(0px, -170px, 0px);
+            }
+            100% {
+                transform: translate3d(-51px, -170px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing9 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(44px, 0px, 0px);
+            }
+            90% {
+                transform: translate3d(44px, -267px, 0px);
+            }
+            100% {
+                transform: translate3d(76px, -267px, 0px);
+            }
+        }
+
+        @keyframes pathing10 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            45% {
+                transform: translate3d(-377px, 0px, 0px);
+            }
+            90% {
+                transform: translate3d(-377px, 307px, 0px);
+            }
+            100% {
+                transform: translate3d(-301px, 307px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing10 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            45% {
+                transform: translate3d(-377px, 0px, 0px);
+            }
+            90% {
+                transform: translate3d(-377px, 307px, 0px);
+            }
+            100% {
+                transform: translate3d(-301px, 307px, 0px);
+            }
+        }
+
+        @keyframes pathing11 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            100% {
+                transform: translate3d(58px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing11 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(76px, -267px, 0px);
+            }
+        }
+
+        @keyframes pathing12 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            99% {
+                transform: translate3d(58px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(58px, -5px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing12 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(76px, -267px, 0px);
+            }
+        }
+
+        @keyframes cpathing1 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            80% {
+                opacity: 1;
+                transform: translate3d(75px, 0px, 0px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(100px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes cpathing1 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            80% {
+                opacity: 1;
+                transform: translate3d(80px, 0px, 0px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(100px, 0px, 0px);
+            }
+        }
+
+        @keyframes cpathing2 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            20% {
+                opacity: 1;
+                transform: translate3d(0px, -20px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0px, -70px, 0px);
+            }
+        }
+
+        @-webkit-keyframes cpathing2 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            20% {
+                opacity: 1;
+                transform: translate3d(-15px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(-70px, 0px, 0px);
+            }
+        }
+
+    
+    </style>
+    <script type="text/javascript">
+
+
+        var jumpTarget, jumpShiftTarget, jumpShiftTarget2, jumpShiftTarget3, jumpShiftTargetHex;
+        var PCinfo = ["<strong>Giá trị PC: 00000100<sub>H</sub></strong>", ""];
+
+        function pad(num, size) {
+            var s = num + "";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
+
+        function shiftLeft(num) {
+            var i;
+            var s = "";
+            var num1 = num + "";
+            for (i = 0; i < 24; i++) {
+                s = s + num1[i + 2];
+            }
+            s = s + "00";
+            return s;
+        }
+
+        function binaryToHex(s) {
+            var i, k, part, accum, ret = '';
+            for (i = s.length - 1; i >= 3; i -= 4) {
+
+                part = s.substr(i + 1 - 4, 4);
+                accum = 0;
+                for (k = 0; k < 4; k += 1) {
+                    if (part[k] !== '0' && part[k] !== '1') {
+
+                        return {valid: false};
+                    }
+
+                    accum = accum * 2 + parseInt(part[k], 10);
+                }
+                if (accum >= 10) {
+
+                    ret = String.fromCharCode(accum - 10 + 'A'.charCodeAt(0)) + ret;
+                } else {
+
+                    ret = String(accum) + ret;
+                }
+            }
+
+            if (i >= 0) {
+                accum = 0;
+
+                for (k = 0; k <= i; k += 1) {
+                    if (s[k] !== '0' && s[k] !== '1') {
+                        return {valid: false};
+                    }
+                    accum = accum * 2 + parseInt(s[k], 10);
+                }
+                ret = String(accum) + ret;
+            }
+            return {valid: true, result: ret};
+        }
+
+        function showValues() {
+            offsetValue.innerHTML = $('#target').val();
+            offsetValueBin.innerHTML = jumpTarget;
+        }
+
+
+        $(document).ready(function () {
+
+            $('#target').keyup(function () {
+                jumpTarget = pad((parseInt($('#target').val())).toString(2), 26);
+
+            });
+
+            $("#assign").click(function () {
+                $('#IM').attr("data-html", "<strong>Nạp lệnh từ 00000100<sub>H</sub>: <br><font color='red'>000011</font> <font color='#33FFCC'>" + jumpTarget + "<sub>B</sub></font></strong>");
+                $('#data4').attr("data-html", "<strong><font color='red'>000011</font> <font color='#33FFCC'>" + jumpTarget + "<sub>B</sub></font></strong>");
+                $('#data5').attr("data-html", "<strong><font color='#33FFCC'>Offset: " + jumpTarget + "<sub>B</sub></font></strong>");
+                jumpShiftTarget = shiftLeft(jumpTarget);
+                $('#SL2').attr("data-html", "<strong>Shift Left 2 thực hiện phép dịch trái 2 trên <br>" + jumpTarget + "<sub>B</sub><br> Đầu ra: <br>" + jumpShiftTarget + "<sub>B</sub></strong>");
+                $('#data9').attr("data-html", "<strong>" + jumpShiftTarget + "<sub>B</sub></strong>");
+                jumpShiftTarget2 = "00" + jumpShiftTarget;
+                jumpShiftTarget3 = "0000" + jumpShiftTarget2;
+                $('#Concatenate').attr("data-html", "<strong>Nối <u>0000</u>0000000000000000000100000100<sub>B</sub><br>và<br><u>" + jumpShiftTarget2 + "</u><sub>B</sub><br>Đầu ra: " + jumpShiftTarget3 + "<sub>B</sub></strong>");
+                $('#data10').attr("data-html", "<strong>" + jumpShiftTarget3 + "<sub>B</sub></strong>");
+                jumpShiftTargetHex = binaryToHex(jumpShiftTarget3);
+                PCinfo[1] = "<strong>Giá trị PC mới: " + jumpShiftTargetHex.result + "<sub>H</sub></strong>";
+            });
+
+
+            $('.ui.modal')
+                    .modal('show');
+
+            $('.ui.modal')
+                    .modal({
+                        selector: {
+                            close: 'icon.close'
+                        }
+                    });
+
+            $('.ui.modal').modal({
+                onHidden: function () {
+                    $('#PC').attr("data-html", PCinfo[0]);
+                    $('#PC').popup({
+                        position: "top center"
+                    });
+                    $('#PC').popup('show');
+                }
+            });
+
+
+            $('.circular.ui.icon.button.10').click(function () {
+                checker();
+
+            });
+
+            function checker() {
+                if ($('#pauseButton').hasClass("pause")) {
+                    $('#pauseButton').removeClass("pause").addClass("play");
+                    $('#play').addClass("disabled");
+                    if ($('#data1').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data1').css("animation-play-state", "paused");
+                        $('#data2').css("animation-play-state", "paused");
+                        $('#data3').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("1");
+
+                    }
+                    if ($('#data5').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data4').css("animation-play-state", "paused");
+                        $('#data5').css("animation-play-state", "paused");
+                        $('#data6').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("2");
+                    }
+
+                    if ($('#data7').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data7').css("animation-play-state", "paused");
+                        $('#data8').css("animation-play-state", "paused");
+                        $('#data9').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("3");
+                    }
+
+                    if ($('#data10').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data10').css("animation-play-state", "paused");
+                        $('#data11').css("animation-play-state", "paused");
+                        $('#data12').css("animation-play-state", "paused");
+                        $('#cdata1').css("animation-play-state", "paused");
+                        $('#cdata2').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("4");
+                    }
+
+                } else if ($('#pauseButton').hasClass("play")) {
+                    $('#pauseButton').removeClass("play").addClass("pause");
+                    if ($('#superToggler').hasClass("1")) {
+                        $('#data1').css("animation-play-state", "running");
+                        $('#data2').css("animation-play-state", "running");
+                        $('#data3').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("1");
+                    }
+
+                    if ($('#superToggler').hasClass("2")) {
+                        $('#data4').css("animation-play-state", "running");
+                        $('#data5').css("animation-play-state", "running");
+                        $('#data6').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("2");
+                    }
+                    if ($('#superToggler').hasClass("3")) {
+                        $('#data7').css("animation-play-state", "running");
+                        $('#data8').css("animation-play-state", "running");
+                        $('#data9').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("3");
+                    }
+                    if ($('#superToggler').hasClass("4")) {
+                        $('#data10').css("animation-play-state", "running");
+                        $('#data11').css("animation-play-state", "running");
+                        $('#data12').css("animation-play-state", "running");
+                        $('#cdata1').css("animation-play-state", "running");
+                        $('#cdata2').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("4");
+                    }
+
+
+                }
+            }
+
+
+            $('.data')
+                    .popup({
+                        on: 'hover'
+                    });
+
+
+            var information = [
+                "Giá trị của PC, thường là giá trị cố định (4 byte) cần thiết để tăng PC lên một chu kỳ, được truyền vào Adder. Địa chỉ của lệnh cần được thực thi được truyền vào IM.",
+
+                "Adder thực hiện phép cộng số học để xác định giá trị tiếp theo của PC. Mặt khác, lệnh được giải mã bởi IM.",
+
+                "Lệnh đã giải mã được chia thành các đoạn tương ứng và gửi đến thanh ghi RF. Địa chỉ đích (jump target) được gửi đến Shifter, mã lệnh (opcode) được gửi đến Control Unit.",
+
+                "Shifter thực hiện phép dịch trái 2 (Shift Left 2) trên địa chỉ đích. CU xác định loại lệnh thông qua mã lệnh (opcode).",
+
+                "Shifter và Adder gửi các giá trị mới của chúng đến Concatenator.",
+
+                "Concatenator nối bốn bit đầu tiên của giá trị từ Adder với các bit còn lại từ Shifter.",
+
+                "Concatenator gửi giá trị PC mới đến PC. Bên cạnh đó, giá trị của PC hiện tại + 4 được ghi vào RF.",
+
+                "PC được cập nhật với giá trị mới và trỏ đến lệnh tiếp theo sẽ được thực thi. Bạn hiểu hết chưa? Nếu chưa, hãy nhấn làm mới!"
+            ]
+
+            $('.ui.accordion')
+                    .accordion();
+
+            $('.circular.ui.icon.button.1').click(function () {
+                $('#pause').removeClass("disabled");
+                $('#data1').css("animation-play-state", "running");
+                $('#data2').css("animation-play-state", "running");
+                $('#data3').css("animation-play-state", "running");
+                $('#PC').css("-webkit-filter", "none");
+                $('#PC').css("filter", "none");
+                $('#PC').popup('hide');
+                $('.circular.ui.icon.button.1').removeClass("1").addClass("2").addClass("disabled");
+                $("#information").text(function () {
+                    return information[0];
+                });
+                binding1();
+            });
+
+            function binding1() {
+                $('.circular.ui.icon.button.2').click(function () {
+                    $('#data4').css("animation-play-state", "running");
+                    $('#data5').css("animation-play-state", "running");
+                    $('#data6').css("animation-play-state", "running");
+                    $('#Adder').popup('hide');
+                    $('#IM').popup('hide');
+                    $('#IM').css("-webkit-filter", "none");
+                    $('#IM').css("filter", "none");
+                    $('#Adder').css("-webkit-filter", "none");
+                    $('#Adder').css("filter", "none");
+                    $('.circular.ui.icon.button.2').removeClass("2").addClass("3").addClass("disabled");
+                    $("#information").text(function () {
+                        return information[2];
+                    });
+                    binding2();
+                });
+            }
+
+            function binding2() {
+                $('.circular.ui.icon.button.3').click(function () {
+                    $('#data7').css("animation-play-state", "running");
+                    $('#data8').css("animation-play-state", "running");
+                    $('#data9').css("animation-play-state", "running");
+                    $('#SL2').css("-webkit-filter", "none");
+                    $('#SL2').css("filter", "none");
+                    $('#SL2').popup('hide');
+                    $('#CU').css("-webkit-filter", "none");
+                    $('#CU').css("filter", "none");
+                    $('#CU').popup('hide');
+                    $('.circular.ui.icon.button.3').removeClass("3").addClass("4").addClass("disabled");
+                    $("#information").text(function () {
+                        return information[4];
+                    });
+                    binding3();
+                });
+            }
+
+            function binding3() {
+                $('.circular.ui.icon.button.4').click(function () {
+                    $('#data10').css("animation-play-state", "running");
+                    $('#data11').css("animation-play-state", "running");
+                    $('#data12').css("animation-play-state", "running");
+                    $('#cdata1').css("animation-play-state", "running");
+                    $('#cdata2').css("animation-play-state", "running");
+                    $('#Concatenate').css("-webkit-filter", "none");
+                    $('#Concatenate').css("filter", "none");
+                    $('#Concatenate').popup('hide');
+                    $('.circular.ui.icon.button.4').removeClass("4").addClass("disabled");
+                    $("#information").text(function () {
+                        return information[6];
+                    });
+                });
+            }
+
+
+            $("#data1").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#Adder').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#Adder').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#Adder').popup('show');
+                $('#IM').popup({
+                    variation: "wide"
+                });
+                $('#IM').popup('show');
+                $('#IM').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#IM').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('.circular.ui.icon.button.2').removeClass("disabled");
+                $('#pause').addClass("disabled");
+
+
+                $("#information").text(function () {
+                    return information[1];
+                });
+
+            });
+
+
+            $("#data4").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $("#data4").css("opacity", "0");
+            });
+
+
+            $("#data8").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#data8').css("opacity", "0");
+                $('#data12').css("opacity", "1");
+            });
+
+
+            $("#data5").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#SL2').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#SL2').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#CU').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#CU').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#SL2').popup('show');
+                $('#CU').popup({
+                    position: "left center"
+                });
+                $('#CU').popup('show');
+                $('.circular.ui.icon.button.3').removeClass("disabled");
+                $('#pause').addClass("disabled");
+                $("#information").text(function () {
+                    return information[3];
+                });
+            });
+
+
+            $("#data7").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#Concatenate').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#Concatenate').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('.circular.ui.icon.button.4').removeClass("disabled");
+                $('#pause').addClass("disabled");
+
+                $('#Concatenate').popup('show');
+                $("#information").text(function () {
+                    return information[5];
+                });
+            });
+
+            $("#data10").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#PC').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#PC').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#PC').attr("data-html", PCinfo[1]);
+                $('#PC').popup({
+                    position: "top center"
+                });
+                $('#PC').popup('show');
+                $('#RF').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#RF').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#RF').popup('show');
+                $('#RF').popup({
+                    html: "<strong>Giá trị của 00000104<sub>H</sub> được ghi vào $31(11111<sub>B</sub>)</strong>",
+                    position: "bottom center"
+                });
+
+                $('#pause').addClass("disabled");
+                $("#information").text(function () {
+                    return information[7];
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body style="background-color: #F2F2F2;">
+
+
+<div class="ui modal">
+    <i class="close icon"></i>
+    <h2 class="ui center aligned icon header">
+        <i class="circular settings icon"></i>
+        Lệnh JAL
+    </h2>
+
+    <div class="ui horizontal segments">
+        <div class="ui segment">
+            <p>
+            <h1 class="ui header" align="center">JAL</h1></p>
+        </div>
+        <div class="ui segment">
+            <p>
+            <h1 class="ui header" align="center">Đích đến</h1>
+            <div class="ui input fluid" align="center">
+                <input type="text" placeholder="Giá trị nguyên từ 0 - 1024" id="target">
+            </div>
+            </p>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="index.html" class="negative ui button">
+            Về trang chủ
+        </a>
+        <button class="ui positive ui button" id="assign" onclick="showValues()">
+            Gán giá trị
+        </button>
+    </div>
+</div>
+
+
+<div align="center">
+    <a href="index.html"><img src="banner2.png"></a>
+</div>
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="content">
+                    <div class="menu"><a class="item" href="rDatapath.html">Đường dẫn cơ bản</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="active title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="active content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="active item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="content">
+                    <div class="menu">
+
+
+                        <a class="item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+
+                        <a class="item" href="instruction.html">Các lệnh 101</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+        <div class="ui piled compact segment">
+            <div style="position:relative" align="left"><img src="datapaths/jalDatapath2.png" style=" z-index:2; width: 775px; height: 450px;">
+                <div id="PC"
+                     style="position: absolute; top: 314px; left: 138px; height: 102px; width: 51px; background-image: url(icons/vPC2.png); background-size: 51px 102px; z-index: 4; -webkit-filter: drop-shadow(0px 0px 25px #F00); filter: drop-shadow(0px 0px 60px #F00);"></div>
+                <div id="IM"
+                     style="position: absolute; top: 313px; left: 297px; height: 102px; width: 102px; background-image: url(icons/IM2.png); background-size: 102px 102px; z-index: 4;"
+                     data-html="<strong>Nạp lệnh từ 00000100<sub>H</sub>: <br><font color='red'>000011</font> <font color='#33FFCC'>00000000000000000001100100<sub>B</sub></font></strong>"></div>
+                <div id="Adder"
+                     style="position: absolute; top: 89px; left: 162px; height: 102px; width: 102px; background-image: url(icons/Adder2.png); background-size: 102px 102px; z-index: 4;"
+                     data-html="<strong>Cộng 00000004<sub>H</sub> vào 00000100<sub>H</sub></strong>"></div>
+                <div id="SL2"
+                     style="position: absolute; top: 211px; left: 487px; height: 51px; width: 51px; background-image: url(icons/shrunk/SL22.png); background-size: 51px 51px; z-index: 4;"
+                     data-html="<strong>Shift Left 2 thực hiện phép dịch trái 2 trên <br>00000000000000000001100100<sub>B</sub><br> Đầu ra: <br>00000000000000000110010000<sub>B</sub></strong>"
+                     data-variation="wide"></div>
+                <div id="Concatenate"
+                     style="position: absolute; top: 40px; left: 437px; height: 37px; width: 37px; background-image: url(icons/Concatenate2.png); background-size: 37px 37px; z-index: 4;"
+                     data-position="left center"></div>
+
+
+                <div id="CU"
+                     style="position: absolute; top: 314px; left: 567px; height: 102px; width: 102px; background-image: url(icons/CU2.png); background-size: 102px 102px; z-index: 4;"
+                     data-html="<strong>Mã lệnh(Opcode): 000011<sub>B</sub><br>Lệnh: J-type</strong>"></div>
+                <div id="RF"
+                     style="position: absolute; top: 181px; left: 368px; height: 102px; width: 102px; background-image: url(icons/RF2.png); background-size: 102px 102px; z-index: 4;"></div>
+
+
+                <div id="data1"
+                     style="position: absolute; top: 351px; left: 161px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000100<sub>H</strong></sub>"></div>
+
+                <div id="data2"
+                     style="position: absolute; top: 351px; left: 227px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000100<sub>H</strong></sub>"></div>
+
+                <div id="data3"
+                     style="position: absolute; top: 95px; left: 95px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000004<sub>H</strong></sub>"></div>
+
+                <div id="data4"
+                     style="position: absolute; top: 351px; left: 370px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data"
+                     data-html="<strong><font color='red'>000011</font> <font color='#33FFCC'>00000000000000000001100100</font><sub>B</sub></strong>"
+                     data-variation="wide"></div>
+
+                <div id="data5"
+                     style="position: absolute; top: 351px; left: 498px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data"
+                     data-html="<strong><font color='#33FFCC'>Độ dời: 00000000000000000001100100<sub>B</sub></font></strong>"></div>
+
+                <div id="data6"
+                     style="position: absolute; top: 351px; left: 498px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data"
+                     data-html="<strong><font color='red'>Mã lệnh(Opcode): 000011<sub>B</sub></font></strong>"></div>
+
+                <div id="data7"
+                     style="position: absolute; top: 128px; left: 235px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000104<sub>H</sub></strong>"></div>
+
+                <div id="data8"
+                     style="position: absolute; top: 127px; left: 283px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000104<sub>H</sub></strong>"></div>
+
+                <div id="data9"
+                     style="position: absolute; top: 215px; left: 498px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000000000000000110010000<sub>B</sub></strong>"></div>
+
+                <div id="data10"
+                     style="position: absolute; top: 44px; left: 440px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data"
+                     data-html="<strong>00000000000000000000000110010000<sub>B</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(00000190<sub>H</sub>)</strong>"></div>
+
+                <div id="data11"
+                     style="position: absolute; top: 232px; left: 310px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>Write address: 11111<sub>B</sub></strong>"></div>
+
+                <div id="data12"
+                     style="position: absolute; top: 259px; left: 310px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000104<sub>H</sub></strong>"></div>
+
+                <div id="cdata1"
+                     style="position: absolute; top: 314px; left: 604px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>write enable = 1<sub>B</sub></strong>"></div>
+
+                <div id="cdata2"
+                     style="position: absolute; top: 325px; left: 423px; height: 28px; width: 28px; background-image: url(controlData.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>write enable = 1<sub>B</sub></strong>"></div>
+
+                <div id="data98"
+                     style="position: absolute; top: 232px; left: 310px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>Write address: 11111<sub>B</sub></strong>"></div>
+
+                <div id="data99"
+                     style="position: absolute; top: 95px; left: 95px; height: 28px; width: 28px; background-image: url(data.png); background-size: 28px 28px; z-index: 3;"
+                     class="data" data-html="<strong>00000004<sub>H</strong></sub>"></div>
+
+                <div class="ui floating message"
+                     style="position: absolute; width: 185px; height: 198px; top: 2px; left: 602px; font-size: 12px;"
+                     id="information"> Đường dẫn dữ liệu đơn giản này có bản chất là một chu kỳ đơn.
+                </div>
+                <button class="circular ui icon button 1" id="play"
+                        style="position: absolute; z-index: 6; left: 46px; top: 5px;"><i class="step forward icon"></i>
+                </button>
+                <button class="circular ui icon button 10 disabled" id="pause"
+                        style="position: absolute; z-index: 6; left: 3px; top: 5px;"><i class="pause icon"
+                                                                                        id="pauseButton"></i></button>
+
+                <div class="ui icon message"><i class="info circle icon"></i>
+                    <div class="content">
+                        <div class="header"> Lệnh JAL</div>
+                        <p>Lệnh JAL rẽ nhánh PC bằng một<font color="#33FFCC"> độ dời</font> được chỉ định, và lưu
+                            giá trị PC hiện tại + 4 vào thanh ghi $31.</p>
+                        <p>Cú pháp: <br><strong>JAL <font color="#33FFCC">Độ dời</font></strong>.</p>
+                        <p>Lệnh JAL mẫu được trình bày trong đường dẫn dữ liệu ở trên là <strong>JAL <span
+                                id="offsetValue"></span></strong>.
+                        <p>Lệnh nhị phân tương đương là:
+                        <div class="ui horizontal pointing menu">
+                            <a class="item">
+                                <div class="data" data-html="<font color='red'>Mã lệnh</font>" data-variation="basic">
+                                    <font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Opcode)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;000011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </font></div>
+                            </a>
+                            <a class="item">
+                                <div class="data" data-html="<font color='#33FFCC'>Độ dời</font>"
+                                     data-variation="basic"><font color="#33FFCC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(offset)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        id="offsetValueBin"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </font></div>
+                            </a>
+                        </div>
+                        Không có thanh ghi nào trong tệp thanh ghi được sử dụng trong lệnh này.
+                        <div id="superToggler" class="toggler"></div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>

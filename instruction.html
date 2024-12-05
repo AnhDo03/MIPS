@@ -1,0 +1,421 @@
+<html>
+<head><title>MIPS 101</title>
+    <script language="javascript" src="jquery.min.js"></script>
+    <script language="javascript" src="jquery-ui.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <style></style>
+
+    <script type="text/javascript">
+
+        $(init);
+
+        function init() {
+
+            $('.ui.accordion')
+                    .accordion();
+
+        }
+        ;
+
+
+    </script>
+</head>
+<body style="background-color: #F2F2F2;">
+<div align="center"><a href="index.html"><img src="banner2.png"></a></div>
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="content">
+                    <div class="menu"><a class="item" href="rDatapath.html">Đường dẫn cơ bản</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="active title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="active content">
+                    <div class="menu">
+
+
+                        <a class="item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+
+                        <a class="active item" href="instruction.html">Các lệnh 101</a>   
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+        <div class="ui piled segment">
+            <h2 class="ui header"><i class="file text icon outline icon"></i>
+                <div class="content"> Lệnh R</div>
+            </h2>
+            Một lệnh MIPS điển hình là một chuỗi gồm 32 số nhị phân nối tiếp nhau. Ví dụ một lệnh loại R có thể
+            trông như thế này:
+
+            <div class="ui floating message" align="center">
+                <p>0000 0001 0000 0011 0001 0000 0010 0000 </p>
+            </div>
+            Để đơn giản hóa mọi thứ, lệnh có thể được phân đoạn như sau:
+            <div class="ui floating message" align="center">
+                <p>000000 01000 00011 00010 00000 100010 </p>
+            </div>
+            Đối với lệnh R, có 6 thành phần.
+
+
+            <ul>
+                <li>Mã lệnh</li>
+                <li>Thanh ghi nguồn thứ nhất</li>
+                <li>Thanh ghi nguồn thứ hai</li>
+                <li>Thanh ghi đích</li>
+                <li>Số lượng bit cần dịch chuyển</li>
+                <li>Các bit chức năng</li>
+            </ul>
+
+
+            Và như bạn đã đoán trước, mỗi đoạn của dãy bit tương ứng với một trong các thành phần nêu trên.
+
+            <table class="ui very basic collapsing celled table">
+                <thead>
+                <tr>
+                    <th>Thành phần</th>
+                    <th>Phạm vi bit</th>
+                    <th>Ví dụ</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Mã lệnh
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            31st to 26th
+                        </div>
+                    </td>
+                    <td>
+                        <i class="pointing right icon"></i><strong class="jigglypuff"><u>000000</u></strong> 01000 00011
+                        00010 00000 100010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Thanh ghi nguồn thứ nhất
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            21st to 25th
+                        </div>
+                    </td>
+                    <td>
+                        000000 <i class="pointing right icon"></i><strong class="jigglypuff"><u>01000</u></strong><i
+                            class="pointing left icon"></i> 00011 00010 00000 100010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Thanh ghi nguồn thứ hai
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            16th to 20th
+                        </div>
+                    </td>
+                    <td>
+                        000000 01000 <i class="pointing right icon"></i><strong class="jigglypuff"><u>00011</u></strong><i
+                            class="pointing left icon"></i> 00010 00000 100010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Thanh ghi đích
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            11th to 15th
+                        </div>
+                    </td>
+                    <td>
+                        000000 01000 00011 <i class="pointing right icon"></i><strong
+                            class="jigglypuff"><u>00010</u></strong><i class="pointing left icon"></i> 00000 100010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Số lượng bit cần dịch chuyển
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            6th to 10th
+                        </div>
+                    </td>
+                    <td>
+                        000000 01000 00011 00010 <i class="pointing right icon"></i><strong
+                            class="jigglypuff"><u>00000</u></strong><i class="pointing left icon"></i> 100010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Các bit chức năng
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            0th to 5th
+                        </div>
+                    </td>
+                    <td>
+                        000000 01000 00011 00010 00000 <i class="pointing right icon"></i><strong class="jigglypuff"><u>100010</u></strong><i
+                            class="pointing left icon"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            Chương trình sẽ tuân theo quy định các bit chức năng và biểu diễn nhị phân của chúng như sau:
+
+            <table class="ui very basic collapsing celled table">
+                <thead>
+                <tr>
+                    <th>Các bit chức năng</th>
+                    <th>Biểu diễn nhị phân</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="content">
+                            ADD
+                        </div>
+                    </td>
+                    <td>
+                        100000
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            SUB
+                        </div>
+                    </td>
+                    <td>
+                        100010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            AND
+                        </div>
+                    </td>
+                    <td>100100</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            OR
+                        </div>
+                    </td>
+                    <td>
+                        100101
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            SLT
+                        </div>
+                    </td>
+                    <td>
+                        101010
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            Với một số giải mã,
+
+            <div class="ui floating message" align="center">
+                <p>000000 01000 00011 00010 00000 100010 </p>
+            </div>
+            <div align="center"><i class="arrow down icon"></i></div>
+
+            <div class="ui floating message" align="center">
+                <p>SUB $2, $8, $3</p>
+            </div>
+
+            Hoặc hiểu đơn giản,
+
+            <div class="ui floating message" align="center">
+                <p>Trừ nội dung của $3 từ $8 và lưu trữ vào $2</p>
+            </div>
+
+            <h2 class="ui header"><i class="file text icon outline icon"></i>
+                <div class="content"> Lệnh I</div>
+            </h2>
+            Ví dụ về lệnh loại I có thể trong như thế này:
+
+            <div class="ui floating message" align="center">
+                <p>001000 00001 00110 0000000000001010</p>
+            </div>
+
+            Nhưng lần này các thành phần lại khác biệt, như được hiển thị dưới đây:
+
+            <table class="ui very basic collapsing celled table">
+                <thead>
+                <tr>
+                    <th>Thành phần</th>
+                    <th>Phạm vi bit</th>
+                    <th>Ví dụ</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Mã lệnh
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            31st to 26th
+                        </div>
+                    </td>
+                    <td>
+                        <i class="pointing right icon"></i><strong class="jigglypuff"><u>001000</u></strong><i
+                            class="pointing left icon"></i> 00001 00110 0000000000001010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Thanh ghi nguồn
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            21st to 25th
+                        </div>
+                    </td>
+                    <td>
+                        001000 <i class="pointing right icon"></i><strong class="jigglypuff"><u>00001</u></strong><i
+                            class="pointing left icon"></i> 00110 0000000000001010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Thanh ghi đích
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            16th to 20th
+                        </div>
+                    </td>
+                    <td>
+                        001000 00001 <i class="pointing right icon"></i><strong class="jigglypuff"><u>00110</u></strong><i
+                            class="pointing left icon"></i> 0000000000001010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Dữ liệu thức thời
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            0th to 15th
+                        </div>
+                    </td>
+                    <td>
+                        001000 00001 00110 <i class="pointing right icon"></i><strong class="jigglypuff"><u>
+                        0000000000001010</u></strong><i class="pointing left icon"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            Với các giải mã,
+
+            <div class="ui floating message" align="center">
+                <p>001000 00001 00110 0000000000001010</p>
+            </div>
+            <div align="center"><i class="arrow down icon"></i></div>
+
+            <div class="ui floating message" align="center">
+                <p>ADDI $6, $1, #10</p>
+            </div>
+
+            Hoặc hiểu đơn giản,
+
+            <div class="ui floating message" align="center">
+                <p>Cộng giá trị 10 vào nội dung của $1 và lưu vào $6 </p>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+</div>
+
+</body>

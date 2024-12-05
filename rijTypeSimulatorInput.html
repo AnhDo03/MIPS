@@ -1,0 +1,634 @@
+<html>
+
+<head><title>MIPS 101</title>
+    <script language="javascript" src="jquery.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+
+
+    <script type="text/javascript">
+
+        $(init);
+
+        function init() {
+
+            $('.ui.accordion')
+                .accordion();
+
+        }
+        ;
+
+
+        $(document).ready(function () {
+            $('select.dropdown')
+                .dropdown()
+            ;
+            $('#labelWrapper1').hide();
+            $('#1arg1type1').hide();
+            $('#1arg1type2').hide();
+            $('#1arg2type1').hide();
+            $('#1arg2type2').hide();
+            $('#1arg3type1').hide();
+            $('#1arg3type2').hide();
+            $('#1arg3type3').hide();
+
+
+            $('#instruction1').on('change', function () {
+                var selection = $(this).val();
+
+                switch (selection) {
+                    case "ADD":
+                    case "SUB":
+                    case "AND":
+                    case "OR":
+                    case "SLT":
+                        $('#label1').show();
+                        $('#1arg1type1').show();
+                        $('#1arg2type1').show();
+                        $('#1arg3type1').show();
+                        $('#1arg1type2').hide();
+                        $('#1arg2type2').hide();
+                        $('#1arg3type2').hide();
+                        $('#1arg3type3').hide();
+                        break;
+                    case "JR":
+                        $('#label1').show();
+                        $('#1arg1type1').show();
+                        $('#1arg1type2').hide();
+                        $('#1arg2type1').hide();
+                        $('#1arg2type2').hide();
+                        $('#1arg3type1').hide();
+                        $('#1arg3type2').hide();
+                        $('#1arg3type3').hide();
+                        break;
+                    case "ADDI":
+                        $('#label1').show();
+                        $('#1arg1type1').show();
+                        $('#1arg2type1').show();
+                        $('#1arg3type3').show();
+                        $('#1arg1type2').hide();
+                        $('#1arg2type2').hide();
+                        $('#1arg3type1').hide();
+                        $('#1arg3type2').hide();
+                        break;
+                    case "LW":
+                    case "SW":
+                        $('#label1').show();
+                        $('#1arg1type1').show();
+                        $('#1arg2type2').show();
+                        $('#1arg3type1').show();
+                        $('#1arg1type2').hide();
+                        $('#1arg2type1').hide();
+                        $('#1arg3type2').hide();
+                        $('#1arg3type3').hide();
+                        break;
+                    case "BEQ":
+                        $('#label1').show();
+                        $('#1arg1type1').show();
+                        $('#1arg2type1').show();
+                        $('#1arg3type2').show();
+                        $('#1arg1type2').hide();
+                        $('#1arg2type2').hide();
+                        $('#1arg3type1').hide();
+                        $('#1arg3type3').hide();
+                        break;
+                    case "J":
+                    case "JAL":
+                        $('#1arg1type2').show();
+                        $('#1arg2type1').hide();
+                        $('#1arg3type1').hide();
+                        $('#1arg1type1').hide();
+                        $('#1arg2type2').hide();
+                        $('#1arg3type2').hide();
+                        $('#1arg3type3').hide();
+                        break;
+                }
+
+
+            });
+        });
+
+
+        function consolidate()
+        {
+
+            var i = 0;
+
+            var arrayRegister = [];
+            for (i = 0; i < 31; i++)
+            {
+                arrayRegister.push(document.getElementsByName("reg1")[i].value);
+            }
+
+            localStorage.setItem("arrayRegister", JSON.stringify(arrayRegister));
+
+            var instruction1 = [];
+
+            switch (document.getElementById("instruction1").value) {
+                case "ADD":
+                case "SUB":
+                case "AND":
+                case "OR":
+                case "SLT":
+                    instruction1.push(document.getElementById("instruction1").value, document.getElementById("1arg1register").value, document.getElementById("1arg2register").value, document.getElementById("1arg3register").value);
+                    break;
+                case "JR":
+                    instruction1.push(document.getElementById("instruction1").value, document.getElementById("1arg1register").value);
+                    break;
+                case "ADDI":
+                    instruction1.push(document.getElementById("instruction1").value, document.getElementById("1arg1register").value, document.getElementById("1arg2register").value, document.getElementById("1arg3immediate").value);
+                    break;
+                case "LW":
+                    instruction1.push(document.getElementById("instruction1").value, document.getElementById("1arg1register").value, document.getElementById("1arg3register").value, document.getElementById("1arg2offset").value);
+                    break;
+                case "SW":
+                    instruction1.push(document.getElementById("instruction1").value, document.getElementById("1arg3register").value, document.getElementById("1arg1register").value, document.getElementById("1arg2offset").value);
+                    break;
+                case "BEQ":
+                    instruction1.push(document.getElementById("instruction1").value, document.getElementById("1arg1register").value, document.getElementById("1arg2register").value, document.getElementById("1arg3target").value);
+                    break;
+                case "J":
+                case "JAL":
+                    instruction1.push(document.getElementById("instruction1").value, document.getElementById("1arg1address").value);
+                    break;
+            }
+
+            localStorage.setItem("arrayInstruction", JSON.stringify(instruction1));
+
+        }
+
+
+    </script>
+</head>
+
+<body style="background-color: #F2F2F2;">
+
+
+<div align="center">
+    <a href="index.html"><img src="banner2.png"></a>
+</div>
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="content">
+                    <div class="menu"><a class="item" href="rDatapath.html">Đường dẫn cơ bản</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+                        <a class="item" href="instruction.html">Các lệnh 101</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="active title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+        <div class="ui piled  segment">
+            <div style="position:relative" align="left">
+
+
+                <form action="rijTypeSimulator.html" name="rijSim" onsubmit="consolidate()">
+                    <div>
+                        <h3 class="ui center aligned icon header">
+                            <i class="circular table icon"></i>
+                            Các giá trị thanh ghi
+                        </h3>
+
+
+                        <input type="hidden" name="reg0" value="0" disabled="disabled">
+
+                        <div class="ui horizontal compact segments">
+                            <div class="ui segment">
+                                <p align="center">$1
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$2
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$3
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$4
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$5
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$6
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$7
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$8
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$9
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$10
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="ui horizontal compact segments">
+                            <div class="ui segment">
+                                <p align="center">$11
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$12
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$13
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$14
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$15
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$16
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$17
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$18
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$19
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$20
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$21
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui horizontal compact segments">
+                            <div class="ui segment">
+                                <p align="center">$22
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$23
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$24
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$25
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$26
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$27
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$28
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$29
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$30
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+
+                            <div class="ui segment">
+                                <p align="center">$31
+                                </p>
+                                <div class="ui mini input fluid" align="center">
+                                    <input type="text" placeholder="..." size="2" maxlength="2" name="reg1">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <h3 class="ui horizontal divider header">
+                            <i class="settings icon"></i>
+                            Danh sách lệnh
+                        </h3>
+
+                        <div class="ui horizontal segments">
+                            <div class="ui segment">
+                                <p><h4 class="ui header" align="center">1)</h4>
+                                </p>
+                            </div>
+                            <div class="ui segment">
+                                <p>
+                                <div id="instructionWrapper1" align="center">
+                                    <h4>Lệnh</h4>
+                                    <select class="ui fluid search mini dropdown" name="instruction1" id="instruction1">
+                                        <option value="">...</option>
+                                        <option value="ADD">ADD</option>
+                                        <option value="SUB">SUB</option>
+                                        <option value="AND">AND</option>
+                                        <option value="OR">OR</option>
+                                        <option value="SLT">SLT</option>
+                                        <option value="JR">JR</option>
+                                        <option value="ADDI">ADDI</option>
+                                        <option value="LW">LW</option>
+                                        <option value="SW">SW</option>
+                                        <option value="BEQ">BEQ</option>
+                                        <option value="J">J</option>
+                                        <option value="JAL">JAL</option>
+                                    </select>
+
+                                </div>
+                                </p>
+                            </div>
+
+
+                            <div class="ui segment">
+                                <div id="1arg1type1" align="center">
+                                    <h4>Thanh ghi</h4>
+                                    <div class="ui left icon mini input">
+                                        <input type="text" placeholder="..." size="2" maxlength="2"
+                                               name="1arg1register" id="1arg1register">
+                                        <i class="dollar icon"></i>
+                                    </div>
+
+                                </div>
+
+                                <div id="1arg1type2" align="center">
+                                    <h4>Địa chỉ</h4>
+                                    <div class="ui mini input">
+                                        <input type="text" placeholder="..." size="3" maxlength="4" name="1arg1address" id="1arg1address">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="ui segment">
+                                <div id="1arg2type1" align="center">
+                                    <h4>Thanh ghi</h4>
+                                    <div class="ui left icon mini input">
+                                        <input type="text" placeholder="..." size="2" maxlength="2"
+                                               name="1arg2register" id="1arg2register">
+                                        <i class="dollar icon"></i>
+                                    </div>
+                                </div>
+
+                                <div id="1arg2type2" align="center">
+                                    <h4>Độ dời</h4>
+                                    <div class="ui mini input">
+                                        <input type="text" placeholder="..." size="4" maxlength="4" name="1arg2offset" id="1arg2offset">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="ui segment">
+                                <div id="1arg3type1" align="center">
+                                    <h4>Thanh ghi</h4>
+                                    <div class="ui left icon mini input">
+                                        <input type="text" placeholder="..." size="2" maxlength="2"
+                                               name="1arg3register" id="1arg3register">
+                                        <i class="dollar icon"></i>
+                                    </div>
+                                </div>
+
+                                <div id="1arg3type2" align="center">
+                                    <h4>Đích đến</h4>
+                                    <div class="ui mini input">
+                                        <input type="text" placeholder="..." size="4" maxlength="4" name="1arg3target" id="1arg3target">
+                                    </div>
+                                </div>
+                                <div id="1arg3type3" align="center">
+                                    <h4>Dữ liệu tức thời</h4>
+                                    <div class="ui mini input">
+                                        <input type="text" placeholder="..." size="4" maxlength="4"
+                                               name="1arg3immediate" id="1arg3immediate">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="actions" align="center">
+                            <a href="index.html" class="negative ui button">
+                                Về trang chủ
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" class="ui positive ui button" id="assign" name="submit"
+                                   value="Gán giá trị">
+                        </div>
+                    </div>
+                <input type="hidden" name="as_sfid" value="AAAAAAUl4Aix2Q9Wzo_DSOzzwt6s0hvRAuIicW-qSmvWoz-yQq-bxia7-W1_0J4iKtnBWoq15MIUAlfdeCElf34e8Iyo6_Id7cVo1cliXWB_NWZ7mbCMHcVhdgkSpTHti-Wy_VMUZFr-2WxIlKKa8hQrk1-Fv2H0in5SmyFIDGeS9ZQdqQ==" /><input type="hidden" name="as_fid" value="80fc6aa2fabd84aac67169adf13ac1bb1ca0dbb3" /></form>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>

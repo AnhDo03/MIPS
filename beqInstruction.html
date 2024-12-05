@@ -1,0 +1,1981 @@
+<html>
+
+<head><title>MIPS 101</title>
+    <script language="javascript" src="jquery.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <style>
+        #data1 {
+            -webkit-animation: pathing1 10s 1;
+            -moz-animation: pathing1 10s 1;
+            -o-animation: pathing1 10s 1;
+            animation: pathing1 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #data2 {
+            -webkit-animation: pathing2 8.5s 1;
+            -moz-animation: pathing2 8.5s 1;
+            -o-animation: pathing2 8.5s 1;
+            animation: pathing2 8.5s 1;
+            position: absolute;
+            animation-delay: 1.5s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #data3 {
+            -webkit-animation: pathing3 10s 1;
+            -moz-animation: pathing3 10s 1;
+            -o-animation: pathing3 10s 1;
+            animation: pathing3 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data4 {
+            -webkit-animation: pathing4 5.5s 1;
+            -moz-animation: pathing4 5.5s 1;
+            -o-animation: pathing4 5.5s 1;
+            animation: pathing4 5.5s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data5 {
+            -webkit-animation: pathing5 8.4s 1;
+            -moz-animation: pathing5 8.4s 1;
+            -o-animation: pathing5 8.4s 1;
+            animation: pathing5 8.4s 1;
+            position: absolute;
+            animation-delay: 1.6s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data6 {
+            -webkit-animation: pathing6 4.5s 1;
+            -moz-animation: pathing6 4.5s 1;
+            -o-animation: pathing6 4.5s 1;
+            animation: pathing6 4.5s 1;
+            position: absolute;
+            animation-delay: 5.5s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data7 {
+            -webkit-animation: pathing7 5.7s 1;
+            -moz-animation: pathing7 5.7s 1;
+            -o-animation: pathing7 5.7s 1;
+            animation: pathing7 5.7s 1;
+            position: absolute;
+            animation-delay: 4.3s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data8 {
+            -webkit-animation: pathing8 4.65s 1;
+            -moz-animation: pathing8 4.65s 1;
+            -o-animation: pathing8 4.65s 1;
+            animation: pathing8 4.65s 1;
+            position: absolute;
+            animation-delay: 5.35s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data9 {
+            -webkit-animation: pathing9 10s 1;
+            -moz-animation: pathing9 10s 1;
+            -o-animation: pathing9 10s 1;
+            animation: pathing9 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data10 {
+            -webkit-animation: pathing10 10s 1;
+            -moz-animation: pathing10 10s 1;
+            -o-animation: pathing10 10s 1;
+            animation: pathing10 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data11 {
+            -webkit-animation: pathing11 10s 1;
+            -moz-animation: pathing11 10s 1;
+            -o-animation: pathing11 10s 1;
+            animation: pathing11 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #cdata1 {
+            -webkit-animation: cpathing1 3.5s 1;
+            -moz-animation: cpathing1 3.5s 1;
+            -o-animation: cpathing1 3.5s 1;
+            animation: cpathing1 3.5s 1;
+            position: absolute;
+            z-index: 3;
+            opacity: 0;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #cdata2 {
+            -webkit-animation: cpathing2 3.5s 1;
+            -moz-animation: cpathing2 3.5s 1;
+            -o-animation: cpathing2 3.5s 1;
+            animation: cpathing2 3.5s 1;
+            animation-delay: 3.5s;
+            opacity: 0;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #cdata3 {
+            -webkit-animation: cpathing3 3s 1;
+            -moz-animation: cpathing3 3s 1;
+            -o-animation: cpathing3 3s 1;
+            animation: cpathing3 3s 1;
+            animation-delay: 7s;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #data12 {
+            -webkit-animation: pathing12 10s 1;
+            -moz-animation: pathing12 10s 1;
+            -o-animation: pathing12 10s 1;
+            animation: pathing12 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data13 {
+            -webkit-animation: pathing13 10s 1;
+            -moz-animation: pathing13 10s 1;
+            -o-animation: pathing13 10s 1;
+            animation: pathing13 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data14 {
+            -webkit-animation: pathing14 6s 1;
+            -moz-animation: pathing14 6s 1;
+            -o-animation: pathing14 6s 1;
+            animation: pathing14 6s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data15 {
+            -webkit-animation: pathing15 5s 1;
+            -moz-animation: pathing15 5s 1;
+            -o-animation: pathing15 5s 1;
+            animation: pathing15 5s 1;
+            animation-delay: 5s;
+            position: absolute;
+            z-index: 3;
+            opacity: 0;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data16 {
+            -webkit-animation: pathing16 6s 1;
+            -moz-animation: pathing16 6s 1;
+            -o-animation: pathing16 6s 1;
+            animation: pathing16 6s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data17 {
+            -webkit-animation: pathing17 4s 1;
+            -moz-animation: pathing17 4s 1;
+            -o-animation: pathing17 4s 1;
+            animation: pathing17 4s 1;
+            animation-delay: 6s;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data18 {
+            -webkit-animation: pathing18 10s 1;
+            -moz-animation: pathing18 10s 1;
+            -o-animation: pathing18 10s 1;
+            animation: pathing18 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data19 {
+            -webkit-animation: pathing19 10s 1;
+            -moz-animation: pathing19 10s 1;
+            -o-animation: pathing19 10s 1;
+            animation: pathing19 10s 1;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #data90 {
+            -webkit-animation: pathing90 4.5s 1;
+            -moz-animation: pathing90 4.5s 1;
+            -o-animation: pathing90 4.5s 1;
+            animation: pathing90 4.5s 1;
+            position: absolute;
+            animation-delay: 5.5s;
+            opacity: 0;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #cdata4 {
+            -webkit-animation: cpathing4 5s 1;
+            -moz-animation: cpathing4 5s 1;
+            -o-animation: cpathing4 5s 1;
+            animation: cpathing4 5s 1;
+            position: absolute;
+            z-index: 3;
+            opacity: 0;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        #cdata5 {
+            -webkit-animation: cpathing5 5s 1;
+            -moz-animation: cpathing5 5s 1;
+            -o-animation: cpathing5 5s 1;
+            animation: cpathing5 5s 1;
+            animation-delay: 5s;
+            opacity: 0;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        @keyframes pathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            15% {
+                transform: translate3d(29px, 0px, 0px);
+            }
+            80% {
+                transform: translate3d(29px, -175px, 0px);
+            }
+            100% {
+                transform: translate3d(76px, -175px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            15% {
+                transform: translate3d(29px, 0px, 0px);
+            }
+            80% {
+                transform: translate3d(29px, -175px, 0px);
+            }
+            100% {
+                transform: translate3d(76px, -175px, 0px);
+            }
+        }
+
+        @keyframes pathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(35px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(35px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(41px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes pathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(41px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes pathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            30% {
+                transform: translate3d(33px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(33px, -72px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            30% {
+                transform: translate3d(33px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(33px, -72px, 0px);
+            }
+        }
+
+        @keyframes pathing5 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            30% {
+                transform: translate3d(0px, 47px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(112px, 47px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing5 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            30% {
+                transform: translate3d(0px, 47px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(112px, 47px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing6 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(89px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing6 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(89px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing7 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(89px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing7 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(89px, 0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing8 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translate3d(0px, 21px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(272px, 21px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing8 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translate3d(0px, 21px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(272px, 21px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing9 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(44px, 0px, 0px);
+            }
+            90% {
+                transform: translate3d(44px, -267px, 0px);
+            }
+            100% {
+                transform: translate3d(72px, -267px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing9 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(44px, 0px, 0px);
+            }
+            90% {
+                transform: translate3d(44px, -267px, 0px);
+            }
+            100% {
+                transform: translate3d(72px, -267px, 0px);
+            }
+        }
+
+        @keyframes pathing10 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(113px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing10 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(113px, 0px, 0px);
+            }
+        }
+
+        @keyframes pathing11 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            45% {
+                transform: translate3d(56px, 0px, 0px);
+            }
+            55% {
+                transform: translate3d(56px, 10px, 0px);
+            }
+            100% {
+                transform: translate3d(113px, 10px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing11 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            45% {
+                transform: translate3d(56px, 0px, 0px);
+            }
+            55% {
+                transform: translate3d(56px, 10px, 0px);
+            }
+            100% {
+                transform: translate3d(113px, 10px, 0px);
+            }
+        }
+
+        @keyframes cpathing1 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            80% {
+                opacity: 1;
+                transform: translate3d(50px, 0px, 0px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(70px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes cpathing1 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            80% {
+                opacity: 1;
+                transform: translate3d(50px, 0px, 0px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(70px, 0px, 0px);
+            }
+        }
+
+        @keyframes cpathing2 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            20% {
+                opacity: 1;
+                transform: translate3d(-15px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(-70px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes cpathing2 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            20% {
+                opacity: 1;
+                transform: translate3d(-15px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(-70px, 0px, 0px);
+            }
+        }
+
+        @keyframes cpathing3 {
+            0% {
+                transform: translate3d(0px, 0px, 0px);
+            }
+
+            100% {
+                transform: translate3d(0px, -55px, 0px);
+            }
+        }
+
+        @-webkit-keyframes cpathing3 {
+            0% {
+                transform: translate3d(0px, 0px, 0px);
+            }
+
+            100% {
+                transform: translate3d(0px, -55px, 0px);
+            }
+        }
+
+        @keyframes pathing12 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            15% {
+                transform: translate3d(27px, 0px, 0px);
+            }
+            85% {
+                transform: translate3d(27px, -107px, 0px);
+            }
+            100% {
+                transform: translate3d(60px, -107px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing12 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            15% {
+                transform: translate3d(27px, 0px, 0px);
+            }
+            85% {
+                transform: translate3d(27px, -107px, 0px);
+            }
+            100% {
+                transform: translate3d(60px, -107px, 0px);
+            }
+        }
+
+        @keyframes pathing13 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(33px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing13 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(33px, 0px, 0px);
+            }
+        }
+
+        @keyframes pathing14 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            25% {
+                transform: translate3d(91px, 0px, 0px);
+            }
+            50% {
+                transform: translate3d(91px, -73px, 0px);
+            }
+            100% {
+                transform: translate3d(295px, -73px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing14 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            25% {
+                transform: translate3d(91px, 0px, 0px);
+            }
+            50% {
+                transform: translate3d(91px, -73px, 0px);
+            }
+            100% {
+                transform: translate3d(295px, -73px, 0px);
+            }
+        }
+
+        @keyframes pathing15 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+            15% {
+                transform: translate3d(0px, -34px, 0px);
+                opacity: 1;
+            }
+            60% {
+                transform: translate3d(191px, -34px, 0px);
+                opacity: 1;
+            }
+            80% {
+                transform: translate3d(191px, 3px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(240px, 3px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing15 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+            15% {
+                transform: translate3d(0px, -34px, 0px);
+                opacity: 1;
+            }
+            60% {
+                transform: translate3d(191px, -34px, 0px);
+                opacity: 1;
+            }
+            80% {
+                transform: translate3d(191px, 3px, 0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(240px, 3px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pathing16 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(43px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing16 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(43px, 0px, 0px);
+            }
+        }
+
+        @keyframes pathing17 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(115px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing17 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(115px, 0px, 0px);
+            }
+        }
+
+        @keyframes pathing18 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            40% {
+                transform: translate3d(46px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(46px, -80px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing18 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            40% {
+                transform: translate3d(46px, 0px, 0px);
+            }
+            100% {
+                transform: translate3d(46px, -80px, 0px);
+            }
+        }
+
+        @keyframes pathing19 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            5% {
+                transform: translate3d(31px, 0px, 0px);
+            }
+            15% {
+                transform: translate3d(31px, -72px, 0px);
+            }
+            60% {
+                transform: translate3d(-659px, -72px, 0px);
+            }
+            95% {
+                transform: translate3d(-659px, 258px, 0px);
+            }
+            100% {
+                transform: translate3d(-633px, 258px, 0px);
+            }
+        }
+
+        @-webkit-keyframes pathing19 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            5% {
+                transform: translate3d(31px, 0px, 0px);
+            }
+            15% {
+                transform: translate3d(31px, -72px, 0px);
+            }
+            60% {
+                transform: translate3d(-659px, -72px, 0px);
+            }
+            95% {
+                transform: translate3d(-659px, 258px, 0px);
+            }
+            100% {
+                transform: translate3d(-633px, 258px, 0px);
+            }
+        }
+
+        @keyframes pathing90 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+            40% {
+                transform: translate3d(0px, -36px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(56px, -36px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes pathing90 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+                opacity: 1;
+            }
+            40% {
+                transform: translate3d(0px, -36px, 0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(56px, -36px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes cpathing4 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            80% {
+                opacity: 1;
+                transform: translate3d(50px, 0px, 0px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(70px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes cpathing4 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            80% {
+                opacity: 1;
+                transform: translate3d(50px, 0px, 0px);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(70px, 0px, 0px);
+            }
+        }
+
+        @keyframes cpathing5 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            20% {
+                opacity: 1;
+                transform: translate3d(5px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(40px, 0px, 0px);
+            }
+        }
+
+        @-webkit-keyframes cpathing5 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0px, 0px, 0px);
+            }
+            20% {
+                opacity: 1;
+                transform: translate3d(5px, 0px, 0px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(40px, 0px, 0px);
+            }
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        var rs, rt, offset, offsetExtended, offsetShifted, offsetHex, branchTarget, a, b, c;
+        var PCval = 0x118;
+        var PCinfo = ["<strong>Giá trị PC: 00000114<sub>H</sub></strong>", ""];
+
+        function showValues() {
+            userRs.innerHTML = $('#rsInput').val();
+            userRt.innerHTML = $('#rtInput').val();
+            userRsBin.innerHTML = rs;
+            userRtBin.innerHTML = rt;
+            offsetTarget.innerHTML = $('#offsetInput').val();
+            offsetTargetBin.innerHTML = offset;
+
+        }
+
+        $(document).ready(function () {
+
+            function pad(num, size) {
+                var s = num + "";
+                while (s.length < size) s = "0" + s;
+                return s;
+            }
+
+            function shiftLeft(num) {
+                var i;
+                var s = "";
+                var num1 = num + "";
+                for (i = 0; i < 30; i++) {
+                    s = s + num1[i + 2];
+                }
+                s = s + "00";
+                return s;
+            }
+
+            function binaryToHex(s) {
+                var i, k, part, accum, ret = '';
+                for (i = s.length - 1; i >= 3; i -= 4) {
+
+                    part = s.substr(i + 1 - 4, 4);
+                    accum = 0;
+                    for (k = 0; k < 4; k += 1) {
+                        if (part[k] !== '0' && part[k] !== '1') {
+
+                            return {valid: false};
+                        }
+                        accum = accum * 2 + parseInt(part[k], 10);
+                    }
+                    if (accum >= 10) {
+
+                        ret = String.fromCharCode(accum - 10 + 'A'.charCodeAt(0)) + ret;
+                    } else {
+
+                        ret = String(accum) + ret;
+                    }
+                }
+
+                if (i >= 0) {
+                    accum = 0;
+
+                    for (k = 0; k <= i; k += 1) {
+                        if (s[k] !== '0' && s[k] !== '1') {
+                            return {valid: false};
+                        }
+                        accum = accum * 2 + parseInt(s[k], 10);
+                    }
+
+                    ret = String(accum) + ret;
+                }
+                return {valid: true, result: ret};
+            }
+
+
+            $('#rsInput').keyup(function () {
+                rs = pad((parseInt($('#rsInput').val())).toString(2), 5);
+                $("#data10").attr("data-html", "<strong>" + rs + "</strong><sub>B</sub>");
+            });
+
+            $('#rtInput').keyup(function () {
+                rt = pad((parseInt($('#rtInput').val())).toString(2), 5);
+                $("#data11").attr("data-html", "<strong>" + rt + "</strong><sub>B</sub>");
+            });
+
+            $('#offsetInput').keyup(function () {
+                offset = pad((parseInt($('#offsetInput').val())).toString(2), 16);
+
+
+            });
+
+
+            $('#assign').click(function () {
+
+                $('#IM').attr("data-html", "<strong>Nạp lệnh từ 00000114<sub>H</sub>: <br><font color='red'>000100</font> <font color='blue'>01001</font> <font color='green'>01011</font> <font color='#669999'>" + offset + "<sub>B</sub></font></strong>");
+                $('#data4').attr("data-html", "<strong><font color='red'>000100</font> <font color='blue'>01001</font> <font color='green'>01011</font> <font color='#669999'>" + offset + "</font><sub>B</sub></strong>");
+                $('#data5').attr("data-html", "<strong><font color='#669999'>Độ dời: " + offset + "</font><sub>B</sub></strong>");
+                $('#RF').attr("data-html", "<strong>Đọc thanh ghi $9(01001<sub>B</sub>) có giá trị là " + rs + "<sub>B</sub><br>Đọc thanh ghi $11(01011<sub>B</sub>) có giá trị là " + rt + "<sub>B</sub></strong>");
+
+                offsetExtended = pad(offset, 32);
+
+                $('#SX').attr("data-html", "<strong>Mở rộng có dấu <br>" + offset + "<sub>B</sub> thành<br> " + offsetExtended + "<sub>B</sub></strong>");
+                $('#data9').attr("data-html", "<strong>" + offsetExtended + "<sub>B</sub></strong>");
+
+                offsetShifted = shiftLeft(offsetExtended);
+                $('#data16').attr("data-html", "<strong>" + offsetShifted + "<sub>B</sub></strong>");
+                $('#SL2').attr("data-html", "<strong>Shift Left 2 thực hiện phép dịch trái 2 trên <br>" + offsetExtended + "<sub>B</sub><br> Đầu ra: <br>" + offsetShifted + "<sub>B</sub></strong>");
+                offsetHex = binaryToHex(offsetShifted);
+
+                branchTarget = (pad((parseInt(("0x" + offsetHex.result)) + PCval).toString(16), 8)).toUpperCase();
+                $('#data17').attr("data-html", "<strong>" + branchTarget + "<sub>H</sub></strong>");
+
+                if (rs == rt) {
+                    $('#ALUz').attr("data-html", "<strong>Giá trị thanh ghi nguồn 1: " + rs + "<sub>B</sub><br>Giá trị thanh ghi nguồn 2: " + rt + "<sub>B</sub><br>Phép tính: XOR<br>Đầu ra: 1<sub>B</sub></strong>");
+                    $('#AND').attr("data-html", "<strong>Rẽ nhánh: 1<sub>B</sub><br>Nguồn ALU: 1<sub>B</sub><br>Phép tính: AND<br>Đầu ra: 1<sub>B</sub></strong>");
+                    $('#MUX').attr("data-html", "<strong>0: 00000118<sub>H</sub><br>1: " + branchTarget + "<sub>H</sub><br>PCsrc: 1<sub>B</sub></strong>");
+                    $('#data12').attr("data-html", "<strong>1<sub>B</strong></sub>");
+                    $('#data18').attr("data-html", "<strong>PCsrc = 1<sub>B</strong></sub>");
+                    $('#data19').attr("data-html", "<strong>" + branchTarget + "<sub>H</strong></sub>");
+                    PCinfo[1] = "<strong>Giá trị PC mới: " + branchTarget + "<sub>H</sub></strong>";
+                }
+                else {
+                    $('#ALUz').attr("data-html", "<strong>Giá trị thanh ghi nguồn 1: " + rs + "<sub>B</sub><br>Giá trị thanh ghi nguồn 2: " + rt + "<sub>B</sub><br>Phép tính: XOR<br>Đầu ra: 0<sub>B</sub></strong>");
+                    $('#AND').attr("data-html", "<strong>Rẽ nhánh: 1<sub>B</sub><br>Nguồn ALU: 0<sub>B</sub><br>Phép tính: AND<br>Đầu ra: 0<sub>B</sub></strong>");
+                    $('#MUX').attr("data-html", "<strong>0: 00000118<sub>H</sub><br>1: " + branchTarget + "<sub>H</sub><br>PCsrc: 0<sub>B</sub></strong>");
+                    $('#data12').attr("data-html", "<strong>0<sub>B</strong></sub>");
+                    $('#data18').attr("data-html", "<strong>PCsrc = 0<sub>B</strong></sub>");
+                    $('#data19').attr("data-html", "<strong>00000118<sub>H</strong></sub>");
+                    PCinfo[1] = "<strong>Giá trị PC mới: 00000118<sub>H</sub></strong>";
+                }
+
+
+            });
+
+            $('.ui.modal')
+                    .modal('show');
+
+            $('.ui.modal')
+                    .modal({
+                        selector: {
+                            close: 'icon.close'
+                        }
+                    });
+
+            $('.ui.modal').modal({
+                onHidden: function () {
+                    $('#PC').attr("data-html", PCinfo[0]);
+                    $('#PC').popup({
+                        position: "top center"
+                    });
+                    $('#PC').popup('show');
+                }
+            });
+
+            $('.circular.ui.icon.button.10').click(function () {
+                checker();
+
+            });
+
+            function checker() {
+                if ($('#pauseButton').hasClass("pause")) {
+                    $('#pauseButton').removeClass("pause").addClass("play");
+                    $('#play').addClass("disabled");
+                    if ($('#data1').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data1').css("animation-play-state", "paused");
+                        $('#data2').css("animation-play-state", "paused");
+                        $('#data3').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("1");
+
+                    }
+                    if ($('#data5').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data4').css("animation-play-state", "paused");
+                        $('#data5').css("animation-play-state", "paused");
+                        $('#data6').css("animation-play-state", "paused");
+                        $('#data7').css("animation-play-state", "paused");
+                        $('#data8').css("animation-play-state", "paused");
+                        $('#data90').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("2");
+                    }
+
+                    if ($('#data9').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data9').css("animation-play-state", "paused");
+                        $('#data10').css("animation-play-state", "paused");
+                        $('#data11').css("animation-play-state", "paused");
+                        $('#cdata1').css("animation-play-state", "paused");
+                        $('#cdata2').css("animation-play-state", "paused");
+                        $('#cdata3').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("3");
+                    }
+
+                    if ($('#data12').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data12').css("animation-play-state", "paused");
+                        $('#cdata4').css("animation-play-state", "paused");
+                        $('#cdata5').css("animation-play-state", "paused");
+
+                        $('#superToggler').addClass("4");
+                    }
+
+                    if ($('#data15').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data14').css("animation-play-state", "paused");
+                        $('#data15').css("animation-play-state", "paused");
+                        $('#data16').css("animation-play-state", "paused");
+                        $('#data17').css("animation-play-state", "paused");
+                        $('#data18').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("5");
+                    }
+
+                    if ($('#data19').css('animation-play-state').toLowerCase() == 'running') {
+                        $('#data19').css("animation-play-state", "paused");
+                        $('#superToggler').addClass("6");
+                    }
+                } else if ($('#pauseButton').hasClass("play")) {
+                    $('#pauseButton').removeClass("play").addClass("pause");
+                    if ($('#superToggler').hasClass("1")) {
+                        $('#data1').css("animation-play-state", "running");
+                        $('#data2').css("animation-play-state", "running");
+                        $('#data3').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("1");
+                    }
+
+                    if ($('#superToggler').hasClass("2")) {
+                        $('#data4').css("animation-play-state", "running");
+                        $('#data5').css("animation-play-state", "running");
+                        $('#data6').css("animation-play-state", "running");
+                        $('#data7').css("animation-play-state", "running");
+                        $('#data8').css("animation-play-state", "running");
+                        $('#data90').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("2");
+                    }
+                    if ($('#superToggler').hasClass("3")) {
+                        $('#data9').css("animation-play-state", "running");
+                        $('#data10').css("animation-play-state", "running");
+                        $('#data11').css("animation-play-state", "running");
+                        $('#cdata1').css("animation-play-state", "running");
+                        $('#cdata2').css("animation-play-state", "running");
+                        $('#cdata3').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("3");
+                    }
+                    if ($('#superToggler').hasClass("4")) {
+                        $('#data12').css("animation-play-state", "running");
+                        $('#cdata4').css("animation-play-state", "running");
+                        $('#cdata5').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("4");
+                    }
+                    if ($('#superToggler').hasClass("5")) {
+                        $('#data14').css("animation-play-state", "running");
+                        $('#data15').css("animation-play-state", "running");
+                        $('#data16').css("animation-play-state", "running");
+                        $('#data17').css("animation-play-state", "running");
+                        $('#data18').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("5");
+                    }
+                    if ($('#superToggler').hasClass("6")) {
+                        $('#data19').css("animation-play-state", "running");
+                        $('#superToggler').removeClass("6");
+                    }
+
+                }
+            }
+
+
+            $('.data')
+                    .popup({
+                        on: 'hover'
+                    });
+
+
+            var information = [
+                "Giá trị của PC, thường là giá trị cố định (4 byte) cần thiết để tăng PC lên một chu kỳ, được truyền vào ALU. Địa chỉ của lệnh cần được thực thi được truyền vào IM.",
+
+                "Adder thực hiện phép cộng số học để xác định giá trị tiếp theo của PC. Mặt khác, lệnh được giải mã bởi IM.",
+
+                "Lệnh đã giải mã được chia thành các đoạn tương ứng và gửi đến thanh ghi RF. Mã lệnh (opcode) được gửi đến Control Unit, giá trị rẽ nhánh được gửi đến Sign Extender.",
+
+                "RF truy xuất dữ liệu từ các thanh ghi theo yêu cầu của lệnh. CU xác định loại lệnh thông qua mã lệnh (opcode). Sign Extender gắn thêm các bit dấu (bit có giá trị cao nhất) 16 lần vào dữ liệu gốc, tạo thành độ dài 32 bit.",
+
+                "RF gửi dữ liệu đọc đến ALU, và Sign Extender gửi dữ liệu của nó đến bộ Shift Left 2.",
+
+                "ALU so sánh dữ liệu từ RF để xem chúng có bằng nhau hay không thông qua phép trừ. Một bit nhị phân, hoặc 1 hoặc 0, sẽ được xuất ra, tùy thuộc vào việc dữ liệu có bằng nhau hay không.",
+
+                "Dữ liệu bit Zero từ ALU và một giá trị nguồn cố định được gửi đến cổng AND.",
+
+                "Cổng AND thực hiện phép toán AND theo từng bit trên cả hai đầu vào.",
+
+                "Adder gửi giá trị PC mới đến cả MUX và ALU. ALU nhận giá trị PC này, cũng như dữ liệu từ bộ Shift Left 2 để tính giá trị rẽ nhánh. Giá trị rẽ nhánh này cũng được gửi đến MUX, cùng với đầu ra của cổng AND.",
+
+                "MUX quyết định địa chỉ nào sẽ được trả về cho PC thông qua bit nhị phân của cổng AND.",
+
+                "Bộ MUX gửi giá trị PC mới đến PC.",
+
+                "PC được cập nhật với giá trị mới và trỏ đến lệnh tiếp theo sẽ được thực thi.",
+            ]
+
+            $('.ui.accordion')
+                    .accordion();
+
+            $('.circular.ui.icon.button.1').click(function () {
+                $('#pause').removeClass("disabled");
+                $('#data1').css("animation-play-state", "running");
+                $('#data2').css("animation-play-state", "running");
+                $('#data3').css("animation-play-state", "running");
+                $('#PC').css("-webkit-filter", "none");
+                $('#PC').css("filter", "none");
+                $('#PC').popup('hide');
+                $('.circular.ui.icon.button.1').removeClass("1").addClass("2").addClass("disabled");
+                $("#information").text(function () {
+                    return information[0];
+                });
+                binding1();
+            });
+
+            function binding1() {
+                $('.circular.ui.icon.button.2').click(function () {
+                    $('#data4').css("animation-play-state", "running");
+                    $('#data5').css("animation-play-state", "running");
+                    $('#data6').css("animation-play-state", "running");
+                    $('#data7').css("animation-play-state", "running");
+                    $('#data8').css("animation-play-state", "running");
+                    $('#data90').css("animation-play-state", "running");
+                    $('#Adder').popup('hide');
+                    $('#IM').popup('hide');
+                    $('#IM').css("-webkit-filter", "none");
+                    $('#IM').css("filter", "none");
+                    $('#Adder').css("-webkit-filter", "none");
+                    $('#Adder').css("filter", "none");
+                    $('.circular.ui.icon.button.2').removeClass("2").addClass("3").addClass("disabled");
+                    $("#information").text(function () {
+                        return information[2];
+                    });
+                    binding2();
+                });
+            }
+
+            function binding2() {
+                $('.circular.ui.icon.button.3').click(function () {
+                    $('#data9').css("animation-play-state", "running");
+                    $('#data10').css("animation-play-state", "running");
+                    $('#data11').css("animation-play-state", "running");
+                    $('#cdata1').css("animation-play-state", "running");
+                    $('#cdata2').css("animation-play-state", "running");
+                    $('#cdata3').css("animation-play-state", "running");
+                    $('#RF').popup('hide');
+                    $('#CU').popup('hide');
+                    $('#SX').popup('hide');
+                    $('#RF').css("-webkit-filter", "none");
+                    $('#RF').css("filter", "none");
+                    $('#SX').css("-webkit-filter", "none");
+                    $('#SX').css("filter", "none");
+                    $('#CU').css("-webkit-filter", "none");
+                    $('#CU').css("filter", "none");
+                    $('.circular.ui.icon.button.3').removeClass("3").addClass("4").addClass("disabled");
+                    $("#information").text(function () {
+                        return information[4];
+                    });
+                    binding3();
+                });
+            }
+
+            function binding3() {
+                $('.circular.ui.icon.button.4').click(function () {
+                    $('#data12').css("animation-play-state", "running");
+                    $('#cdata4').css("animation-play-state", "running");
+                    $('#cdata5').css("animation-play-state", "running");
+                    $('#ALUz').css("-webkit-filter", "none");
+                    $('#ALUz').css("filter", "none");
+                    $('#SL2').css("-webkit-filter", "none");
+                    $('#SL2').css("filter", "none");
+                    $('#ALUz').popup('hide');
+                    $('#SL2').popup('hide');
+                    $('#ALUCNTRL').popup('hide');
+                    $('.circular.ui.icon.button.4').removeClass("4").addClass("5").addClass("disabled");
+                    $("#information").text(function () {
+                        return information[6];
+                    });
+                    binding4();
+                });
+            }
+
+            function binding4() {
+                $('.circular.ui.icon.button.5').click(function () {
+                    $('#data14').css("animation-play-state", "running");
+                    $('#data15').css("animation-play-state", "running");
+                    $('#data16').css("animation-play-state", "running");
+                    $('#data17').css("animation-play-state", "running");
+                    $('#data18').css("animation-play-state", "running");
+                    $('#AND').popup('hide');
+                    $('#AND').css("-webkit-filter", "none");
+                    $('#AND').css("filter", "none");
+                    $('.circular.ui.icon.button.5').removeClass("5").addClass("6").addClass("disabled");
+                    $("#information").text(function () {
+                        return information[8];
+                    });
+                    binding5();
+                });
+            }
+
+            function binding5() {
+                $('.circular.ui.icon.button.6').click(function () {
+                    $('#data19').css("animation-play-state", "running");
+                    $('.circular.ui.icon.button.6').removeClass("6").addClass("disabled");
+                    $('#MUX').popup('hide');
+                    $('#MUX').css("-webkit-filter", "none");
+                    $('#MUX').css("filter", "none");
+                    $("#information").text(function () {
+                        return information[10];
+                    });
+                });
+            }
+
+            $("#data1").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#Adder').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#Adder').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#Adder').popup('show');
+                $('#IM').popup({
+                    variation: "wide"
+                });
+                $('#IM').popup('show');
+                $('#IM').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#IM').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('.circular.ui.icon.button.2').removeClass("disabled");
+                $('#pause').addClass("disabled");
+
+
+                $("#information").text(function () {
+                    return information[1];
+                });
+
+            });
+
+
+            $("#data4").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $("#data4").css("opacity", "0");
+            });
+
+
+            $("#data5").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#RF').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#RF').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#SX').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#SX').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#CU').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#CU').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#RF').popup({
+                    variation: "wide"
+                });
+                $('#RF').popup('show');
+                $('#SX').popup('show');
+                $('#CU').popup({
+                    position: "left center"
+                });
+                $('#CU').popup('show');
+                $('.circular.ui.icon.button.3').removeClass("disabled");
+                $('#pause').addClass("disabled");
+                $("#information").text(function () {
+                    return information[3];
+                });
+            });
+
+
+            $("#data9").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#ALUz').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#ALUz').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#SL2').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#SL2').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('.circular.ui.icon.button.4').removeClass("disabled");
+                $('#pause').addClass("disabled");
+                $('#ALUz').popup({
+                    position: "left center"
+                });
+                $('#ALUz').popup('show');
+                $('#SL2').popup({
+                    position: "left center"
+                });
+                $('#SL2').popup('show');
+                $('#ALUCNTRL').popup({
+                    position: "left center"
+                });
+                $('#ALUCNTRL').popup('show');
+                $("#information").text(function () {
+                    return information[5];
+                });
+            });
+
+            $("#data12").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#AND').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#AND').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#AND').popup({
+                    position: "left center"
+                });
+                $('#AND').popup('show');
+
+                $('.circular.ui.icon.button.5').removeClass("disabled");
+                $('#pause').addClass("disabled");
+                $("#information").text(function () {
+                    return information[7];
+                });
+            });
+
+
+            $("#data15").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('.circular.ui.icon.button.6').removeClass("disabled");
+                $('#MUX').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#MUX').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#MUX').popup({
+                    position: "left center"
+                });
+                $('#MUX').popup('show');
+                $('#pause').addClass("disabled");
+                $("#information").text(function () {
+                    return information[9];
+                });
+            });
+            $("#data19").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $('#PC').attr("data-html", PCinfo[1]);
+                $('#PC').popup({
+                    position: "top center"
+                });
+                $('#PC').popup('show');
+                $('#PC').css("-webkit-filter", "drop-shadow(0px 0px 25px #F00)");
+                $('#PC').css("filter", "drop-shadow(0px 0px 60px #F00)");
+                $('#pause').addClass("disabled");
+                $("#information").text(function () {
+                    return information[11];
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body style="background-color: #F2F2F2;">
+
+
+<div class="ui modal">
+    <i class="close icon"></i>
+    <h2 class="ui center aligned icon header">
+        <i class="circular settings icon"></i>
+        Lệnh BEQ
+    </h2>
+
+    <div class="ui horizontal segments">
+        <div class="ui segment">
+            <p>
+            <h1 class="ui header" align="center">BEQ</h1></p>
+        </div>
+        <div class="ui segment">
+            <p>
+            <h1 class="ui header" align="center">$9,&nbsp;&nbsp;</h1>
+            <div class="ui input fluid" align="center">
+                <input type="text" placeholder="Giá trị nguyên 0 - 15" id="rsInput" autofocus="autofocus">
+            </div>
+            </p>
+        </div>
+        <div class="ui segment">
+            <p>
+            <h1 class="ui header" align="center">$11,</h1>
+            <div class="ui input fluid" align="center">
+                <input type="text" placeholder="Giá trị nguyên từ 0 - 15" id="rtInput">
+            </div>
+            </p>
+        </div>
+        <div class="ui segment">
+            <p>
+            <h1 class="ui header" align="center">Offset</h1>
+            <div class="ui input fluid" align="center">
+                <input type="text" placeholder="Giá trị nhánh từ 0 - 1024" id="offsetInput">
+            </div>
+            </p>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="index.html" class="negative ui button">
+            Về trang chủ
+        </a>
+        <button class="ui positive ui button" id="assign" onclick="showValues()">
+            Gán giá trị
+        </button>
+    </div>
+</div>
+
+
+<div align="center">
+    <a href="index.html"><img src="banner2.png"></a>
+</div>
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="content">
+                    <div class="menu"><a class="item" href="rDatapath.html">Đường dẫn cơ bản</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="active title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="active content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="active item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="content">
+                    <div class="menu">
+
+
+                        <a class="item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+
+                        <a class="item" href="instruction.html">Các lệnh 101</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+        <div class="ui piled compact segment">
+            <div style="position:relative" align="left"><img src="datapaths/beqDatapath2.png" style=" z-index:2; width: 775px; height: 450px;">
+                <div id="PC"
+                     style="position: absolute; top: 299px; left: 35px; height: 88px; width: 50px; background-image: url(icons/shrunk/PC2.png); background-size: 50px 88px; z-index: 4; -webkit-filter: drop-shadow(0px 0px 25px #F00); filter: drop-shadow(0px 0px 60px #F00);"></div>
+
+                <div id="IM"
+                     style="position: absolute; top: 303px; left: 124px; height: 78px; width: 78px; background-image: url(icons/shrunk/IM2.png); background-size: 78px 78px; z-index: 4;"></div>
+                <div id="RF"
+                     style="position: absolute; top: 263px; left: 308px; height: 78px; width: 78px; background-image: url(icons/shrunk/RF2.png); background-size: 78px 78px; z-index: 4;"></div>
+                <div id="Adder"
+                     style="position: absolute; top: 107px; left: 133px; height: 78px; width: 78px; background-image: url(icons/shrunk/Adder2.png); background-size: 78px 78px; z-index: 4;"
+                     data-html="<strong>Cộng 00000004<sub>H</sub> vào 00000114<sub>H</sub></strong>"></div>
+                <div id="CU"
+                     style="position: absolute; top: 162px; left: 263px; height: 88px; width: 49px; background-image: url(icons/shrunk/CU2.png); background-size: 49px 88px; z-index: 4;"
+                     data-html="<strong>Mã lệnh(Opcode): 000100<sub>B</sub><br>Lệnh: I-type</strong>"></div>
+                <div id="SX"
+                     style="position: absolute; top: 363px; left: 326px; height: 44px; width: 44px; background-image: url(icons/shrunk/SX2.png); background-size: 44px 44px; z-index: 4;"
+                     data-variation="wide" data-position="left center"></div>
+                <div id="ALUCU"
+                     style="position: absolute; top: 373px; left: 505px; height: 54px; width: 27px; background-image: url(icons/shrunk/ALUCU2.png); background-size: 27px 54px; z-index: 4;"></div>
+                <div id="ALUz"
+                     style="position: absolute; top: 269px; left: 483px; height: 78px; width: 78px; background-image: url(icons/shrunk/ALU1.png); background-size: 78px 78px; z-index: 4;"></div>
+                <div id="SL2"
+                     style="position: absolute; top: 99px; left: 417px; height: 51px; width: 51px; background-image: url(icons/shrunk/SL22.png); background-size: 51px 51px; z-index: 4;"
+                     data-variation="wide"></div>
+                <div id="ALU2"
+                     style="position: absolute; top: 60px; left: 491px; height: 78px; width: 78px; background-image: url(icons/shrunk/ALU22.png); background-size: 78px 78px; z-index: 4;"
+                     data-html="<strong>Nguồn Adder: 00000118<sub>H</sub><br>Nguồn Shift Left 2: 0000000000000000 00000 00000 101000<sub>B</sub><br>Phép tính: ADD<br>Đầu ra: 00000158<sub>H</sub></strong>"></div>
+                <div id="AND"
+                     style="position: absolute; top: 156px; left: 603px; height: 41px; width: 41px; background-image: url(icons/shrunk/AND2.png); background-size: 41px 41px; z-index: 4;"></div>
+                <div id="MUX"
+                     style="position: absolute; top: 56px; left: 664px; height: 56px; width: 28px; background-image: url(icons/shrunk/MUX42.png); background-size: 28px 56px; z-index: 4;"></div>
+
+
+                <div id="data1"
+                     style="position: absolute; top: 335px; left: 62px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>00000114<sub>H</strong></sub>"></div>
+
+                <div id="data2"
+                     style="position: absolute; top: 335px; left: 91px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>00000114<sub>H</strong></sub>"></div>
+
+                <div id="data3"
+                     style="position: absolute; top: 115px; left: 92px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>00000004<sub>H</strong></sub>"></div>
+
+                <div id="data4"
+                     style="position: absolute; top: 335px; left: 187px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-variation="wide"></div>
+
+                <div id="data5"
+                     style="position: absolute; top: 335px; left: 220px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"></div>
+
+                <div id="data6"
+                     style="position: absolute; top: 263px; left: 220px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"
+                     data-html="<strong><font color='blue'>Read Address 1: 01001<sub>B</sub></font></strong>"></div>
+
+                <div id="data7"
+                     style="position: absolute; top: 285px; left: 220px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"
+                     data-html="<strong><font color='green'>Read Address 2: 01011<sub>B</sub></font></strong>"></div>
+                <div id="data9"
+                     style="position: absolute; top: 382px; left: 351px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-variation="wide"></div>
+
+                <div id="data10"
+                     style="position: absolute; top: 281px; left: 370px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"></div>
+
+                <div id="data11"
+                     style="position: absolute; top: 307px; left: 370px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"></div>
+
+                <div id="cdata1"
+                     style="position: absolute; top: 171px; left: 281px; height: 16px; width: 16px; background-image: url(icons/shrunk/cdata.png); background-size: 16px 16px; background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>ALUop</strong>"></div>
+
+                <div id="cdata2"
+                     style="position: absolute; top: 403px; left: 582px; height: 16px; width: 16px; background-image: url(icons/shrunk/cdata.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>ALUop</strong>"></div>
+
+                <div id="cdata3"
+                     style="position: absolute; top: 378px; left: 511px; height: 16px; width: 16px; background-image: url(icons/shrunk/cData.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>XOR</strong>"></div>
+
+                <div id="data12"
+                     style="position: absolute; top: 283px; left: 545px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"></div>
+
+                <div id="cdata4"
+                     style="position: absolute; top: 171px; left: 283px; height: 16px; width: 16px; background-image: url(icons/shrunk/cData.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>rẽ nhánh = 1<sub>B</sub></strong>"></div><!--brach-->
+
+                <div id="cdata5"
+                     style="position: absolute; top: 161px; left: 565px; height: 16px; width: 16px; background-image: url(icons/shrunk/cData.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>rẽ nhánh = 1<sub>B</sub></strong>"></div>
+
+                <div id="data14"
+                     style="position: absolute; top: 139px; left: 196px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>00000118<sub>H</strong></sub>"></div>
+
+                <div id="data15"
+                     style="position: absolute; top: 66px; left: 427px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>00000118<sub>H</strong></sub>"></div>
+
+                <div id="data16"
+                     style="position: absolute; top: 117px; left: 447px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>0000000000000000 00000 00000 101000<sub>B</strong></sub>"
+                     data-variation="wide"></div>
+
+                <div id="data17"
+                     style="position: absolute; top: 87px; left: 553px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"></div>
+
+                <div id="data18"
+                     style="position: absolute; top: 169px; left: 625px; height: 16px; width: 16px; background-image: url(icons/shrunk/cData.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"></div>
+
+                <div id="data19"
+                     style="position: absolute; top: 78px; left: 673px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data" data-html="<strong>00000158<sub>H</strong></sub>"></div>
+
+                <div id="data90"
+                     style="position: absolute; top: 263px; left: 220px; height: 16px; width: 16px; background-image: url(icons/shrunk/data.png); background-size: 16px 16px; z-index: 3;"
+                     class="data"
+                     data-html="<strong><font color='red'>Mã lệnh(Opcode): 000100<sub>B</sub></font></strong>"></div>
+
+
+                <div class="ui floating message"
+                     style="position: absolute; width: 185px; height: 198px; top: 193px; left: 602px; font-size: 12px;"
+                     id="information"> Đường dẫn dữ liệu đơn giản này có bản chất là một chu kỳ đơn.
+                </div>
+                <button class="circular ui icon button 1" id="play"
+                        style="position: absolute; z-index: 6; left: 105px; top: 34px;"><i
+                        class="step forward icon"></i></button>
+                <button class="circular ui icon button 10 disabled" id="pause"
+                        style="position: absolute; z-index: 6; left: 62px; top: 34px;"><i class="pause icon"
+                                                                                          id="pauseButton"></i></button>
+
+                <div class="ui icon message"><i class="info circle icon"></i>
+                    <div class="content">
+                        <div class="header"> Lệnh BEQ</div>
+                        <p>Lệnh BEQ <font color="#669999">rẽ nhánh PC</font> nếu nội dung <font color="blue">thanh ghi
+                            nguồn thứ nhất </font>và nội dung<font color="green"> thanh ghi nguồn thứ hai</font><br>
+                            bằng nhau.</p>
+                        <p>Cú pháp: <br><strong>BEQ <font color="blue">$Địa chỉ thanh ghi nguồn 1</font>,
+                            <font color="green">$Địa chỉ thanh ghi nguồn 2</font>, <font color="#669999">giá trị
+                                rẽ nhánh</font></strong>.</p>
+                        <p>Lệnh BEQ mẫu được trình bày trong đường dẫn dữ liệu ở trên là <strong>BEQ $9, $11, <span
+                                id="offsetTarget"></span></strong>.
+                        <p>Lệnh nhị phân tương đương là:
+                        <div class="ui horizontal pointing menu">
+                            <a class="item">
+                                <div class="data" data-html="<font color='red'>Mã lệnh</font>" data-variation="basic">
+                                    <font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Opcode)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;000100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </font></div>
+                            </a>
+                            <a class="item">
+                                <div class="data" data-html="<font color='blue'>Địa chỉ thanh ghi nguồn 1</font>"
+                                     data-variation="basic"><font color="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($rs)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </font></div>
+                            </a>
+                            <a class="item">
+                                <div class="data"
+                                     data-html="<font color='green'>Địa chỉ thanh ghi nguồn 2</font>"
+                                     data-variation="basic"><font color="green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;($rt)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </font></div>
+                            </a>
+                            <a class="item">
+                                <div class="data" data-html="<font color='#669999'>Giá trị rẽ nhánh</font>"
+                                     data-variation="basic"><font color="#669999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(offset)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        id="offsetTargetBin"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </font></div>
+                            </a>
+                        </div>
+                        Nội dung của các thanh ghi được sử dụng:
+                        <br>
+
+                        <table class="ui celled table">
+                            <thead>
+                            <tr>
+                                <th>Địa chỉ thanh ghi</th>
+                                <th>Địa chỉ thanh ghi (Nhị phân)</th>
+                                <th>Giá trị thanh ghi</th>
+                                <th>Giá trị thanh ghi (Nhị phân)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>$9</td>
+                                <td>01001</td>
+                                <td><span id="userRs"></span></td>
+                                <td><span id="userRsBin"></span></td>
+                            </tr>
+                            <tr>
+                                <td>$11</td>
+                                <td>01011</td>
+                                <td><span id="userRt"></span></td>
+                                <td><span id="userRtBin"></span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="superToggler" class="toggler"></div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

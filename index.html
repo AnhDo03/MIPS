@@ -1,0 +1,143 @@
+<html>
+<head><title>MIPS 101 </title>
+    <script language="javascript" src="jquery.min.js"></script>
+    <script language="javascript" src="jquery-ui.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <style></style>
+
+    <script type="text/javascript">
+
+        $(init);
+
+        function init() {
+
+            $('.ui.accordion')
+                    .accordion();
+
+        }
+        ;
+
+
+    </script>
+</head>
+<body style="background-color: #F2F2F2;">
+<div align="center"><a href="index.html"><img src="banner2.png"></a></div>
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="content">
+                    <div class="menu"><a class="item" href="rDatapath.html">Đường đi dữ liệu</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+                        <a class="item" href="instruction.html">Các lệnh 101</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+        <div class="ui piled segment">
+            <h2 class="ui header"><i class="settings icon"></i>
+                <div class="content"> Chào mừng đến với MIPS 101</div>
+            </h2>
+            Những nội dung ở ứng dụng này được thiết kế dựa trên nội dung được dạy trong môn Kiến trúc máy tính.
+            <h2 class="ui header"><i class="book icon"></i>
+                <div class="content"> Phạm vi nội dung</div>
+            </h2>
+            Nội dung trong ứng dụng này chủ yếu xoay quanh Kiến trúc Bộ lệnh MIPS 32 bit. Đây là công cụ hỗ trợ
+            người dùng trong việc hình dung ra bộ nhớ đệm cũng như việc chuyển tiếp dữ liệu.
+            <br><br>
+            Nội dung được cung cấp ở đây chỉ được dùng để bổ sung và không thể thay thế cho bài giảng mà người dùng
+            phải xem qua. Thông tin trên trang web này được cung cấp theo nguyên trạng, nếu có bất kì sự mơ hồ nào
+            đối với những thông tin này, bạn nên tham khảo đến trợ lí giảng dạy/giảng viên của mình.
+            <h2 class="ui header"><i class="info icon"></i>
+                <div class="content"> Thông tin cần thiết</div>
+            </h2>
+            Trong suốt ứng dụng web này, sẽ có lúc bạn gặp những đoạn thông tin được đóng gói như sau:
+            <div class="ui icon message"><i class="info circle icon"></i>
+                <div class="content">
+                    <div class="header"> Lệnh XORI</div>
+                    <p>Trong ví dụ này, lệnh được mô phỏng là ... </p>
+                </div>
+            </div>
+            Trong những trường hợp như vậy, điều bắt buộc là phải đọc thông tin trước khi tương tác với ứng dụng web vì
+            nó chứa thông tin nền tảng quan trọng liên quan đến chủ đề đang được đề cập.
+            <h2 class="ui header"><i class="desktop icon"></i>
+                <div class="content"> Khuyến nghị</div>
+            </h2>
+            Các thành phần bố cục trên trang web này sử dụng rất nhiều các yếu tố được định vị tuyệt đối, do đó
+            nên sử dụng màn hình có khả năng hiển thị chiều rộng ít nhất là 1280 pixel.
+            <h2 class="ui header"><i class="chrome icon"></i>
+                <div class="content"> Trình duyệt</div>
+            </h2>
+            Trang web này được phát triển và thử nghiệm trên Chrome <strong>v52.0.2743.82</strong>. Mặc dù đã rất nổ lực để làm
+            cho ứng dụng web này tương thích với các trình duyệt khác như <i class="internet explorer icon"></i>Internet
+            Explorer và <i class="firefox icon"></i>Firefox, tuy nhiên Chrome vẫn là trình duyệt được khuyến nghị để chạy
+            ứng dụng này.
+
+            <h2 class="ui header"><i class="talk outline icon"></i>
+                <div class="content"> Feedback</div>
+            </h2>
+            Bạn có gợi ý gì không? Hãy gửi email cho <a href="mailto:GNEO002@e.ntu.edu.sg">tôi</a> nhé.
+
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<a href="/f61217a453d065015090cd27fd6fb2c2"> </a></body>

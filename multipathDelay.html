@@ -1,0 +1,4758 @@
+<html>
+
+<head><title>MIPS 101</title>
+    <script language="javascript" src="jquery.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <style>
+        #addData1 {
+            -webkit-animation: addPathing1 12s infinite;
+            -moz-animation: addPathing1 12s infinite;
+            -o-animation: addPathing1 12s infinite;
+            animation: addPathing1 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #addData2 {
+            -webkit-animation: addPathing2 12s infinite;
+            -moz-animation: addPathing2 12s infinite;
+            -o-animation: addPathing2 12s infinite;
+            animation: addPathing2 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #addData3 {
+            -webkit-animation: addPathing3 12s infinite;
+            -moz-animation: addPathing3 12s infinite;
+            -o-animation: addPathing3 12s infinite;
+            animation: addPathing3 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #addData4 {
+            -webkit-animation: addPathing4 12s infinite;
+            -moz-animation: addPathing4 12s infinite;
+            -o-animation: addPathing4 12s infinite;
+            animation: addPathing4 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #addiData1 {
+            -webkit-animation: addiPathing1 12s infinite;
+            -moz-animation: addiPathing1 12s infinite;
+            -o-animation: addiPathing1 12s infinite;
+            animation: addiPathing1 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #addiData2 {
+            -webkit-animation: addiPathing2 12s infinite;
+            -moz-animation: addiPathing2 12s infinite;
+            -o-animation: addiPathing2 12s infinite;
+            animation: addiPathing2 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #addiData3 {
+            -webkit-animation: addiPathing3 12s infinite;
+            -moz-animation: addiPathing3 12s infinite;
+            -o-animation: addiPathing3 12s infinite;
+            animation: addiPathing3 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #addiData4 {
+            -webkit-animation: addiPathing4 12s infinite;
+            -moz-animation: addiPathing4 12s infinite;
+            -o-animation: addiPathing4 12s infinite;
+            animation: addiPathing4 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #lwData1 {
+            -webkit-animation: lwPathing1 12s infinite;
+            -moz-animation: lwPathing1 12s infinite;
+            -o-animation: lwPathing1 12s infinite;
+            animation: lwPathing1 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #lwData2 {
+            -webkit-animation: lwPathing2 12s infinite;
+            -moz-animation: lwPathing2 12s infinite;
+            -o-animation: lwPathing2 12s infinite;
+            animation: lwPathing2 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #lwData3 {
+            -webkit-animation: lwPathing3 12s infinite;
+            -moz-animation: lwPathing3 12s infinite;
+            -o-animation: lwPathing3 12s infinite;
+            animation: lwPathing3 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #lwData4 {
+            -webkit-animation: lwPathing4 12s infinite;
+            -moz-animation: lwPathing4 12s infinite;
+            -o-animation: lwPathing4 12s infinite;
+            animation: lwPathing4 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #swData1 {
+            -webkit-animation: swPathing1 12s infinite;
+            -moz-animation: swPathing1 12s infinite;
+            -o-animation: swPathing1 12s infinite;
+            animation: swPathing1 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #swData2 {
+            -webkit-animation: swPathing2 12s infinite;
+            -moz-animation: swPathing2 12s infinite;
+            -o-animation: swPathing2 12s infinite;
+            animation: swPathing2 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #swData3 {
+            -webkit-animation: swPathing3 12s infinite;
+            -moz-animation: swPathing3 12s infinite;
+            -o-animation: swPathing3 12s infinite;
+            animation: swPathing3 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #swData4 {
+            -webkit-animation: swPathing4 12s infinite;
+            -moz-animation: swPathing4 12s infinite;
+            -o-animation: swPathing4 12s infinite;
+            animation: swPathing4 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #beqData1 {
+            -webkit-animation: beqPathing1 12s infinite;
+            -moz-animation: beqPathing1 12s infinite;
+            -o-animation: beqPathing1 12s infinite;
+            animation: beqPathing1 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #beqData2 {
+            -webkit-animation: beqPathing2 12s infinite;
+            -moz-animation: beqPathing2 12s infinite;
+            -o-animation: beqPathing2 12s infinite;
+            animation: beqPathing2 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #beqData3 {
+            -webkit-animation: beqPathing3 12s infinite;
+            -moz-animation: beqPathing3 12s infinite;
+            -o-animation: beqPathing3 12s infinite;
+            animation: beqPathing3 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #beqData4 {
+            -webkit-animation: beqPathing4 12s infinite;
+            -moz-animation: beqPathing4 12s infinite;
+            -o-animation: beqPathing4 12s infinite;
+            animation: beqPathing4 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #beqData5 {
+            -webkit-animation: beqPathing5 12s infinite;
+            -moz-animation: beqPathing5 12s infinite;
+            -o-animation: beqPathing5 12s infinite;
+            animation: beqPathing5 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #jData1 {
+            -webkit-animation: jPathing1 12s infinite;
+            -moz-animation: jPathing1 12s infinite;
+            -o-animation: jPathing1 12s infinite;
+            animation: jPathing1 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #jData2 {
+            -webkit-animation: jPathing2 12s infinite;
+            -moz-animation: jPathing2 12s infinite;
+            -o-animation: jPathing2 12s infinite;
+            animation: jPathing2 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #jalData1 {
+            -webkit-animation: jalPathing1 12s infinite;
+            -moz-animation: jalPathing1 12s infinite;
+            -o-animation: jalPathing1 12s infinite;
+            animation: jalPathing1 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #jalData2 {
+            -webkit-animation: jalPathing2 12s infinite;
+            -moz-animation: jalPathing2 12s infinite;
+            -o-animation: jalPathing2 12s infinite;
+            animation: jalPathing2 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #jalData3 {
+            -webkit-animation: jalPathing3 12s infinite;
+            -moz-animation: jalPathing3 12s infinite;
+            -o-animation: jalPathing3 12s infinite;
+            animation: jalPathing3 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #jalData4 {
+            -webkit-animation: jalPathing4 12s infinite;
+            -moz-animation: jalPathing4 12s infinite;
+            -o-animation: jalPathing4 12s infinite;
+            animation: jalPathing4 12s infinite;
+            position: absolute;
+            z-index: 3;
+            animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes addPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            9% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            13% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            22% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            23% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            34% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+        }
+
+        @-webkit-keyframes addPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            9% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            13% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            22% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            23% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            34% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+        }
+
+        @keyframes addPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            13% {
+                transform: translate3d(144px, -40px, 0px);
+
+            }
+            23% {
+                transform: translate3d(295px, -40px, 0px);
+            }
+            24% {
+                transform: translate3d(295px, -18px, 0px);
+            }
+            31% {
+                transform: translate3d(400px, -18px, 0px);
+            }
+            32% {
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes addPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            13% {
+                transform: translate3d(144px, -40px, 0px);
+
+            }
+            23% {
+                transform: translate3d(295px, -40px, 0px);
+            }
+            24% {
+                transform: translate3d(295px, -18px, 0px);
+            }
+            31% {
+                transform: translate3d(400px, -18px, 0px);
+            }
+            32% {
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+        }
+
+        @keyframes addPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            62% {
+                transform: translate3d(183px, 0px, 0px);
+
+            }
+            69% {
+
+                transform: translate3d(183px, -20px, 0px);
+            }
+            100% {
+
+                transform: translate3d(273px, -20px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes addPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            62% {
+                transform: translate3d(183px, 0px, 0px);
+
+            }
+            69% {
+
+                transform: translate3d(183px, -20px, 0px);
+            }
+            100% {
+
+                transform: translate3d(273px, -20px, 0px);
+
+            }
+        }
+
+        @keyframes addPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes addPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes addiPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            9% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            13% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            22% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            23% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            34% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+        }
+
+        @-webkit-keyframes addiPathing1 {
+
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            9% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            13% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            22% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            23% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            34% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+
+        }
+
+        @keyframes addiPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            9% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            12% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            26% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+            28% {
+                transform: translate3d(357px, 2px, 0px);
+
+            }
+            31% {
+                transform: translate3d(400px, 2px, 0px);
+            }
+
+            32% {
+
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+            34% {
+                transform: translate3d(435px, -8px, 0px);
+
+            }
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes addiPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            9% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            12% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            26% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+            28% {
+                transform: translate3d(357px, 2px, 0px);
+
+            }
+            31% {
+                transform: translate3d(400px, 2px, 0px);
+            }
+
+            32% {
+
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+            34% {
+                transform: translate3d(435px, -8px, 0px);
+
+            }
+
+            36% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            37% {
+                transform: translate3d(460px, -6px, 0px);
+            }
+            41% {
+                transform: translate3d(522px, -6px, 0px);
+            }
+            46% {
+                transform: translate3d(522px, 67px, 0px);
+            }
+            52% {
+                transform: translate3d(636px, 67px, 0px);
+            }
+            54% {
+                transform: translate3d(636px, 31px, 0px);
+            }
+            55% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            58% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            61% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            62% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            64% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            66% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            92% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+        }
+
+        @keyframes addiPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            62% {
+                transform: translate3d(183px, 0px, 0px);
+
+            }
+            69% {
+
+                transform: translate3d(183px, -20px, 0px);
+            }
+            100% {
+
+                transform: translate3d(273px, -20px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes addiPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            62% {
+                transform: translate3d(183px, 0px, 0px);
+
+            }
+            69% {
+
+                transform: translate3d(183px, -20px, 0px);
+            }
+            100% {
+
+                transform: translate3d(273px, -20px, 0px);
+
+            }
+        }
+
+        @keyframes addiPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes addiPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes lwPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            14% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            24% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            25% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            36% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+            39% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            40% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            47% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            51% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+
+            52% {
+                transform: translate3d(610px, 12px, 0px);
+            }
+
+            55% {
+                transform: translate3d(655px, 12px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            57% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            62% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            63% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            64% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            66% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            68% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            94% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes lwPathing1 {
+
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            14% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            24% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            25% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            36% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+            39% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            40% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            47% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            51% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+
+            52% {
+                transform: translate3d(610px, 12px, 0px);
+            }
+
+            55% {
+                transform: translate3d(655px, 12px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            57% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            62% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            63% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            64% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            66% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            68% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            94% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+
+        }
+
+        @keyframes lwPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            13% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            28% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+            31% {
+                transform: translate3d(357px, 2px, 0px);
+
+            }
+            34% {
+                transform: translate3d(400px, 2px, 0px);
+            }
+
+            35% {
+
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+            37% {
+                transform: translate3d(435px, -8px, 0px);
+
+            }
+
+
+            39% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            40% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            47% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            51% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+
+            52% {
+                transform: translate3d(610px, 12px, 0px);
+            }
+
+            55% {
+                transform: translate3d(655px, 12px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            57% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            62% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            63% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            64% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            66% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            68% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            94% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes lwPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            10% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            13% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            28% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+            31% {
+                transform: translate3d(357px, 2px, 0px);
+
+            }
+            34% {
+                transform: translate3d(400px, 2px, 0px);
+            }
+
+            35% {
+
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+            37% {
+                transform: translate3d(435px, -8px, 0px);
+
+            }
+
+
+            39% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            40% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            47% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            51% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+
+            52% {
+                transform: translate3d(610px, 12px, 0px);
+            }
+
+            55% {
+                transform: translate3d(655px, 12px, 0px);
+            }
+            56% {
+                transform: translate3d(658px, 31px, 0px);
+            }
+            57% {
+                transform: translate3d(658px, 22px, 0px);
+            }
+            60% {
+                transform: translate3d(695px, 22px, 0px);
+            }
+            62% {
+                transform: translate3d(695px, 56px, 0px);
+            }
+            63% {
+                transform: translate3d(677px, 56px, 0px);
+            }
+            64% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            66% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            68% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            94% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            98% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+                transform: translate3d(272px, -3px, 0px);
+            }
+        }
+
+        @keyframes lwPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            62% {
+                transform: translate3d(183px, 0px, 0px);
+
+            }
+            69% {
+
+                transform: translate3d(183px, -20px, 0px);
+            }
+            100% {
+
+                transform: translate3d(273px, -20px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes lwPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            62% {
+                transform: translate3d(183px, 0px, 0px);
+
+            }
+            69% {
+
+                transform: translate3d(183px, -20px, 0px);
+            }
+            100% {
+
+                transform: translate3d(273px, -20px, 0px);
+
+            }
+        }
+
+        @keyframes lwPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes lwPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes swPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            20% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            28% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            49% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            52% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+            74% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+
+            78% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            79% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            93% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            100% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes swPathing1 {
+
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            20% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            28% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            49% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            52% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+            74% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+
+
+            78% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            79% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            93% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            100% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+        }
+
+        @keyframes swPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            21% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            27% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            57% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+            62% {
+                transform: translate3d(357px, 2px, 0px);
+
+            }
+            68% {
+                transform: translate3d(400px, 2px, 0px);
+            }
+
+            69% {
+
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+            74% {
+                transform: translate3d(435px, -8px, 0px);
+
+            }
+
+            78% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            79% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            93% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            100% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes swPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            21% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            27% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            57% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+            62% {
+                transform: translate3d(357px, 2px, 0px);
+
+            }
+            68% {
+                transform: translate3d(400px, 2px, 0px);
+            }
+
+            69% {
+
+                transform: translate3d(400px, -8px, 0px);
+            }
+
+            74% {
+                transform: translate3d(435px, -8px, 0px);
+
+            }
+
+            78% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+
+            79% {
+                transform: translate3d(460px, -6px, 0px);
+
+            }
+            93% {
+                transform: translate3d(555px, -6px, 0px);
+
+            }
+            100% {
+                transform: translate3d(610px, -6px, 0px);
+            }
+        }
+
+        @keyframes swPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            20% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            26% {
+                transform: translate3d(144px, -40px, 0px);
+
+            }
+            48% {
+                transform: translate3d(295px, -40px, 0px);
+            }
+            51% {
+                transform: translate3d(295px, -18px, 0px);
+            }
+
+            62% {
+                transform: translate3d(375px, -18px, 0px);
+            }
+
+            68% {
+                transform: translate3d(375px, 25px, 0px);
+            }
+
+            100% {
+                transform: translate3d(610px, 25px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes swPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            20% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            26% {
+                transform: translate3d(144px, -40px, 0px);
+
+            }
+            48% {
+                transform: translate3d(295px, -40px, 0px);
+            }
+            51% {
+                transform: translate3d(295px, -18px, 0px);
+            }
+
+            62% {
+                transform: translate3d(375px, -18px, 0px);
+            }
+
+            68% {
+                transform: translate3d(375px, 25px, 0px);
+            }
+
+            100% {
+                transform: translate3d(610px, 25px, 0px);
+            }
+        }
+
+        @keyframes swPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes swPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes beqPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            7.45% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            10.61% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            18.43% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            19.41% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            27.95% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+            30.96% {
+
+                transform: translate3d(521px, -42px, 0px);
+            }
+
+            35.26% {
+
+                transform: translate3d(521px, -126px, 0px);
+            }
+
+            36.12% {
+
+                transform: translate3d(540px, -126px, 0px);
+            }
+
+            36.55% {
+
+                transform: translate3d(540px, -135px, 0px);
+            }
+
+            39.56% {
+
+                transform: translate3d(598px, -135px, 0px);
+            }
+
+            43% {
+
+                transform: translate3d(598px, -215px, 0px);
+            }
+
+            100% {
+
+                transform: translate3d(598px, -216px, 0px);
+            }
+        }
+
+        @-webkit-keyframes beqPathing1 {
+
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            7.45% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            10.61% {
+                transform: translate3d(144px, -61px, 0px);
+
+            }
+            18.43% {
+                transform: translate3d(295px, -61px, 0px);
+            }
+            19.41% {
+                transform: translate3d(295px, -42px, 0px);
+
+            }
+
+            27.95% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+            30.96% {
+
+                transform: translate3d(521px, -42px, 0px);
+            }
+
+            35.26% {
+
+                transform: translate3d(521px, -126px, 0px);
+            }
+
+            36.12% {
+
+                transform: translate3d(540px, -126px, 0px);
+            }
+
+            36.55% {
+
+                transform: translate3d(540px, -135px, 0px);
+            }
+
+            39.56% {
+
+                transform: translate3d(598px, -135px, 0px);
+            }
+
+            43% {
+
+                transform: translate3d(598px, -215px, 0px);
+            }
+
+            100% {
+
+                transform: translate3d(598px, -216px, 0px);
+            }
+
+        }
+
+        @keyframes beqPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            6.88% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            9.03% {
+                transform: translate3d(144px, -40px, 0px);
+
+            }
+            16.34% {
+                transform: translate3d(295px, -40px, 0px);
+            }
+            17.63% {
+                transform: translate3d(295px, -18px, 0px);
+            }
+            22.79% {
+                transform: translate3d(400px, -18px, 0px);
+            }
+            23.22% {
+                transform: translate3d(400px, -8px, 0px);
+            }
+            26.23% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            27.95% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+            30.96% {
+
+                transform: translate3d(521px, -42px, 0px);
+            }
+
+            35.26% {
+
+                transform: translate3d(521px, -126px, 0px);
+            }
+
+            36.12% {
+
+                transform: translate3d(540px, -126px, 0px);
+            }
+
+            36.55% {
+
+                transform: translate3d(540px, -135px, 0px);
+            }
+
+            39.56% {
+
+                transform: translate3d(598px, -135px, 0px);
+            }
+
+            43% {
+
+                transform: translate3d(598px, -215px, 0px);
+            }
+
+            100% {
+
+                transform: translate3d(598px, -216px, 0px);
+            }
+
+        }
+
+        @-webkit-keyframes beqPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            6.88% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            9.03% {
+                transform: translate3d(144px, -40px, 0px);
+
+            }
+            16.34% {
+                transform: translate3d(295px, -40px, 0px);
+            }
+            17.63% {
+                transform: translate3d(295px, -18px, 0px);
+            }
+            22.79% {
+                transform: translate3d(400px, -18px, 0px);
+            }
+            23.22% {
+                transform: translate3d(400px, -8px, 0px);
+            }
+            26.23% {
+                transform: translate3d(460px, -8px, 0px);
+            }
+            27.95% {
+                transform: translate3d(460px, -42px, 0px);
+            }
+            30.96% {
+
+                transform: translate3d(521px, -42px, 0px);
+            }
+
+            35.26% {
+
+                transform: translate3d(521px, -126px, 0px);
+            }
+
+            36.12% {
+
+                transform: translate3d(540px, -126px, 0px);
+            }
+
+            36.55% {
+
+                transform: translate3d(540px, -135px, 0px);
+            }
+
+            39.56% {
+
+                transform: translate3d(598px, -135px, 0px);
+            }
+
+            43% {
+
+                transform: translate3d(598px, -215px, 0px);
+            }
+
+            100% {
+
+                transform: translate3d(598px, -216px, 0px);
+            }
+        }
+
+        @keyframes beqPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            7% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            9% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            20% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+
+            32% {
+                transform: translate3d(357px, -197px, 0px);
+            }
+
+            37% {
+                transform: translate3d(460px, -197px, 0px);
+            }
+
+            38% {
+                transform: translate3d(500px, -220px, 0px);
+            }
+
+            43% {
+                transform: translate3d(598px, -220px, 0px);
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @-webkit-keyframes beqPathing3 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            7% {
+                transform: translate3d(144px, 0px, 0px);
+            }
+
+            9% {
+                transform: translate3d(144px, 40px, 0px);
+            }
+
+            20% {
+                transform: translate3d(357px, 40px, 0px);
+            }
+
+            32% {
+                transform: translate3d(357px, -197px, 0px);
+            }
+
+            37% {
+                transform: translate3d(460px, -197px, 0px);
+            }
+
+            38% {
+                transform: translate3d(500px, -220px, 0px);
+            }
+
+            43% {
+                transform: translate3d(598px, -220px, 0px);
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @keyframes beqPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            17% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            35% {
+
+                transform: translate3d(450px, -245px, 0px);
+
+            }
+
+            38% {
+                transform: translate3d(500px, -220px, 0px);
+            }
+
+            43% {
+                transform: translate3d(598px, -220px, 0px);
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @-webkit-keyframes beqPathing4 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            17% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            35% {
+
+                transform: translate3d(450px, -245px, 0px);
+
+            }
+
+            38% {
+                transform: translate3d(500px, -220px, 0px);
+            }
+
+            43% {
+                transform: translate3d(598px, -220px, 0px);
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes beqPathing5 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes beqPathing5 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            1% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            6% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            7% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+            9% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            10% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+            16% {
+
+                transform: translate3d(115px, -245px, 0px);
+
+            }
+            25% {
+
+                transform: translate3d(292px, -245px, 0px);
+
+            }
+            27% {
+
+                transform: translate3d(292px, -284px, 0px);
+
+            }
+            40% {
+
+                transform: translate3d(552px, -284px, 0px);
+
+            }
+
+            42% {
+
+                transform: translate3d(552px, -240px, 0px);
+
+            }
+            44% {
+
+                transform: translate3d(598px, -240px, 0px);
+
+            }
+
+            45% {
+
+                transform: translate3d(598px, -229px, 0px);
+
+            }
+            46% {
+
+                transform: translate3d(618px, -229px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(618px, -320px, 0px);
+
+            }
+            78% {
+
+                transform: translate3d(35px, -320px, 0px);
+
+            }
+            79% {
+
+                transform: translate3d(35px, -310px, 0px);
+
+            }
+            83% {
+
+                transform: translate3d(-47px, -310px, 0px);
+
+            }
+
+            98% {
+
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes jPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            12% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            39% {
+                transform: translate3d(144px, -301px, 0px);
+
+            }
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @-webkit-keyframes jPathing1 {
+
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            12% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            39% {
+                transform: translate3d(144px, -301px, 0px);
+
+            }
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @keyframes jPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            2% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            12% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            14% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+
+            19% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            22% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes jPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            2% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            12% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            14% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+
+            19% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            22% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes jalPathing1 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            12% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            39% {
+                transform: translate3d(144px, -301px, 0px);
+
+            }
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @-webkit-keyframes jalPathing1 {
+
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+            12% {
+                transform: translate3d(144px, 0px, 0px);
+
+            }
+            39% {
+                transform: translate3d(144px, -301px, 0px);
+
+            }
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @keyframes jalPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            2% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            12% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            14% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+
+            19% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            22% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+        }
+
+        @-webkit-keyframes jalPathing2 {
+            0% {
+                transform: translate3D(0px, 0px, 0px);
+            }
+
+            2% {
+
+                transform: translate3d(23px, 0px, 0px);
+
+            }
+
+            12% {
+
+                transform: translate3d(23px, -96px, 0px);
+
+            }
+
+            14% {
+
+                transform: translate3d(45px, -96px, 0px);
+
+            }
+
+            19% {
+
+                transform: translate3d(90px, -117px, 0px);
+
+            }
+
+            22% {
+
+                transform: translate3d(115px, -117px, 0px);
+
+            }
+
+            42% {
+                transform: translate3d(115px, -301px, 0px);
+
+            }
+
+            51% {
+                transform: translate3d(35px, -301px, 0px);
+
+            }
+
+            52% {
+                transform: translate3d(35px, -311px, 0px);
+
+            }
+
+            61% {
+                transform: translate3d(-47px, -311px, 0px);
+
+            }
+
+            95% {
+                transform: translate3d(-47px, 0px, 0px);
+
+            }
+
+            100% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+        }
+
+        @keyframes jalPathing3 {
+            0% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            4% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            9% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            79% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            95% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+
+                transform: translate3d(272px, -3px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes jalPathing3 {
+
+            0% {
+                transform: translate3d(677px, 64px, 0px);
+
+            }
+            4% {
+
+                transform: translate3d(652px, 64px, 0px);
+            }
+            9% {
+                transform: translate3d(652px, 93px, 0px);
+            }
+            79% {
+                transform: translate3d(253px, 93px, 0px);
+            }
+            95% {
+                transform: translate3d(253px, -1px, 0px);
+            }
+            99% {
+
+                transform: translate3d(270px, -1px, 0px);
+            }
+            100% {
+
+                transform: translate3d(272px, -3px, 0px);
+
+            }
+        }
+
+        @keyframes jalPathing4 {
+            0% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+            30% {
+
+                transform: translate3d(25px, 0px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(25px, -17px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(65px, -17px, 0px);
+
+            }
+        }
+
+        @-webkit-keyframes jalPathing4 {
+
+            0% {
+                transform: translate3d(0px, 0px, 0px);
+
+            }
+
+            30% {
+
+                transform: translate3d(25px, 0px, 0px);
+
+            }
+            50% {
+
+                transform: translate3d(25px, -17px, 0px);
+
+            }
+
+            100% {
+
+                transform: translate3d(65px, -17px, 0px);
+
+            }
+
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        $(init);
+
+        function init() {
+
+            $('.ui.accordion')
+                    .accordion();
+
+        }
+        ;
+
+        $(document).ready(function () {
+            $('#addPath').hide();
+            $('#addiPath').hide();
+            $('#lwPath').hide();
+            $('#swPath').hide();
+            $('#beqPath').hide();
+            $('#jPath').hide();
+            $('#jalPath').hide();
+            $('#addInfo').hide();
+            $('#addiInfo').hide();
+            $('#lwInfo').hide();
+            $('#swInfo').hide();
+            $('#beqInfo').hide();
+            $('#jInfo').hide();
+            $('#jalInfo').hide();
+            $('#addData1').css("opacity", "0");
+            $('#addData2').css("opacity", "0");
+            $('#addData3').css("opacity", "0");
+            $('#addData4').css("opacity", "0");
+            $('#addiData1').css("opacity", "0");
+            $('#addiData2').css("opacity", "0");
+            $('#addiData3').css("opacity", "0");
+            $('#addiData4').css("opacity", "0");
+            $('#lwData1').css("opacity", "0");
+            $('#lwData2').css("opacity", "0");
+            $('#lwData3').css("opacity", "0");
+            $('#lwData4').css("opacity", "0");
+            $('#swData1').css("opacity", "0");
+            $('#swData2').css("opacity", "0");
+            $('#swData3').css("opacity", "0");
+            $('#swData4').css("opacity", "0");
+            $('#beqData1').css("opacity", "0");
+            $('#beqData2').css("opacity", "0");
+            $('#beqData3').css("opacity", "0");
+            $('#beqData4').css("opacity", "0");
+            $('#beqData5').css("opacity", "0");
+            $('#jData1').css("opacity", "0");
+            $('#jData2').css("opacity", "0");
+            $('#jalData1').css("opacity", "0");
+            $('#jalData2').css("opacity", "0");
+            $('#jalData3').css("opacity", "0");
+            $('#jalData4').css("opacity", "0");
+
+
+            $('#add').hover(function () {
+                        $('#addPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#SX').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#addData1').css("opacity", "1");
+                        $('#addData2').css("opacity", "1");
+                        $('#addData3').css("opacity", "1");
+                        $('#addData4').css("opacity", "1");
+                        $('#addInfo').transition('fade');
+
+                    },
+                    function () {
+                        $('#addPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#SX').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#addInfo').transition('fade');
+                        $('#addData1').css("opacity", "0");
+                        $('#addData2').css("opacity", "0");
+                        $('#addData3').css("opacity", "0");
+                        $('#addData4').css("opacity", "0");
+                    });
+
+            $('#addi').hover(function () {
+                        $('#addiPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#addiInfo').transition('fade');
+                        $('#addiData1').css("opacity", "1");
+                        $('#addiData2').css("opacity", "1");
+                        $('#addiData3').css("opacity", "1");
+                        $('#addiData4').css("opacity", "1");
+                    },
+                    function () {
+                        $('#addiPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#addiInfo').transition('fade');
+                        $('#addiData1').css("opacity", "0");
+                        $('#addiData2').css("opacity", "0");
+                        $('#addiData3').css("opacity", "0");
+                        $('#addiData4').css("opacity", "0");
+                    });
+
+            $('#lw').hover(function () {
+                        $('#lwPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#lwInfo').transition('fade');
+                        $('#lwData1').css("opacity", "1");
+                        $('#lwData2').css("opacity", "1");
+                        $('#lwData3').css("opacity", "1");
+                        $('#lwData4').css("opacity", "1");
+
+
+                    },
+                    function () {
+                        $('#lwPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#lwInfo').transition('fade');
+                        $('#lwData1').css("opacity", "0");
+                        $('#lwData2').css("opacity", "0");
+                        $('#lwData3').css("opacity", "0");
+                        $('#lwData4').css("opacity", "0");
+
+                    });
+            $('#sw').hover(function () {
+                        $('#swPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX4').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#MUX7').transition('fade');
+                        $('#swInfo').transition('fade');
+                        $('#swData1').css("opacity", "1");
+                        $('#swData2').css("opacity", "1");
+                        $('#swData3').css("opacity", "1");
+                        $('#swData4').css("opacity", "1");
+                    },
+                    function () {
+                        $('#swPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX4').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#MUX7').transition('fade');
+                        $('#swInfo').transition('fade');
+                        $('#swData1').css("opacity", "0");
+                        $('#swData2').css("opacity", "0");
+                        $('#swData3').css("opacity", "0");
+                        $('#swData4').css("opacity", "0");
+                    });
+
+            $('#beq').hover(function () {
+                        $('#beqPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX4').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#MUX7').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#beqInfo').transition('fade');
+                        $('#beqData1').css("opacity", "1");
+                        $('#beqData2').css("opacity", "1");
+                        $('#beqData3').css("opacity", "1");
+                        $('#beqData4').css("opacity", "1");
+                        $('#beqData5').css("opacity", "1");
+
+
+                    },
+                    function () {
+                        $('#beqPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL22').transition('fade');
+                        $('#Concatenator').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX4').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#MUX7').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#beqInfo').transition('fade');
+                        $('#beqData1').css("opacity", "0");
+                        $('#beqData2').css("opacity", "0");
+                        $('#beqData3').css("opacity", "0");
+                        $('#beqData4').css("opacity", "0");
+                        $('#beqData5').css("opacity", "0");
+                    });
+
+            $('#j').hover(function () {
+                        $('#jPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#ALUz').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#RF').transition('fade');
+                        $('#MUX1').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX4').transition('fade');
+                        $('#MUX5').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#MUX7').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#SX').transition('fade');
+                        $('#ALUCU').transition('fade');
+                        $('#jInfo').transition('fade');
+                        $('#jData1').css("opacity", "1");
+                        $('#jData2').css("opacity", "1");
+                    },
+                    function () {
+                        $('#jPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#ALUz').transition('fade');
+                        $('#AND').transition('fade');
+                        $('#RF').transition('fade');
+                        $('#MUX1').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX4').transition('fade');
+                        $('#MUX5').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#MUX7').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#SX').transition('fade');
+                        $('#ALUCU').transition('fade');
+                        $('#jInfo').transition('fade');
+                        $('#jData1').css("opacity", "0");
+                        $('#jData2').css("opacity", "0");
+                    });
+            $('#jal').hover(function () {
+                        $('#jalPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#ALUz').transition('fade');
+                        $('#AND').transition('fade');
+
+                        $('#MUX1').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX5').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#SX').transition('fade');
+                        $('#ALUCU').transition('fade');
+                        $('#jalInfo').transition('fade');
+                        $('#jalData1').css("opacity", "1");
+                        $('#jalData2').css("opacity", "1");
+                        $('#jalData3').css("opacity", "1");
+                        $('#jalData4').css("opacity", "1");
+                    },
+                    function () {
+                        $('#jalPath').transition('fade');
+                        $('#multiPath').transition('fade');
+                        $('#SL2').transition('fade');
+                        $('#ALU').transition('fade');
+                        $('#ALUz').transition('fade');
+                        $('#AND').transition('fade');
+
+                        $('#MUX1').transition('fade');
+                        $('#MUX3').transition('fade');
+                        $('#MUX5').transition('fade');
+                        $('#MUX6').transition('fade');
+                        $('#DM').transition('fade');
+                        $('#SX').transition('fade');
+                        $('#ALUCU').transition('fade');
+                        $('#jalInfo').transition('fade');
+                        $('#jalData1').css("opacity", "0");
+                        $('#jalData2').css("opacity", "0");
+                        $('#jalData3').css("opacity", "0");
+                        $('#jalData4').css("opacity", "0");
+                    });
+
+
+        });
+
+
+        $('.data')
+                .popup({
+                    on: 'hover'
+                });
+
+    </script>
+</head>
+
+<body style="background-color: #F2F2F2;">
+
+
+<div align="center">
+    <a href="index.html"><img src="banner2.png"></a>
+</div>
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="content">
+                    <div class="menu"><a class="item" href="rDatapath.html">Đường dẫn cơ bản</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="active title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="active content">
+                    <div class="menu">
+
+
+                        <a class="active item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+
+                        <a class="item" href="instruction.html">Các lệnh 101</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+        <div class="ui piled compact segment">
+            <div style="position: relative;" align="left">
+                <img src="whitePadding.png" style="position: relative; z-index:2; ">
+                <img src="datapaths/multipath2.png" style="position: absolute; top: 0px; left: 0; z-index:2; width: 775px; height: 450px;" id="multiPath">
+                <img src="datapaths/beqDatapathExample2.png" style="position: absolute; top:0; left: 0; z-index:2; width: 775px; height: 450px;" id="beqPath">
+                <img src="datapaths/addDatapathExample2.png" style="position: absolute; top:0; left: 0; z-index:2; width: 775px; height: 450px;" id="addPath">
+                <img src="datapaths/addiDatapathExample2.png" style="position: absolute; top:0; left: 0; z-index:2; width: 775px; height: 450px;"
+                     id="addiPath">
+                <img src="datapaths/lwDatapathExample2.png" style="position: absolute; top:0; left: 0; z-index:2; width: 775px; height: 450px;" id="lwPath">
+                <img src="datapaths/swDatapathExample2.png" style="position: absolute; top:0; left: 0; z-index:2; width: 775px; height: 450px;" id="swPath">
+                <img src="datapaths/jDatapathExample2.png" style="position: absolute; top:0; left: 0; z-index:2; width: 775px; height: 450px;" id="jPath">
+                <img src="datapaths/jalDatapathExample2.png" style="position: absolute; top:0; left: 0; z-index:2; width: 775px; height: 450px;" id="jalPath">
+                <div id="PC"
+                     style="position: absolute; top: 306px; left: 29px; height: 77px; width: 40px; background-image: url(icons/shrunk/shrunk/PC2.png); background-size: 40px 77px; z-index: 10;"></div>
+                <div id="IM"
+                     style="position: absolute; top: 306px; left: 103px; height: 77px; width: 77px; background-image: url(icons/shrunk/shrunk/IM2.png); background-size: 77px 77px; z-index: 10;"></div>
+                <div id="RF"
+                     style="position: absolute; top: 275px; left: 322px; height: 77px; width: 77px; background-image: url(icons/shrunk/shrunk/RF2.png); background-size: 77px 77px; z-index: 10;"></div>
+                <div id="Adder"
+                     style="position: absolute; top: 189px; left: 91px; height: 77px; width: 77px; background-image: url(icons/shrunk/shrunk/Adder2.png); background-size: 77px 77px; z-index: 10;"></div>
+                <div id="CU"
+                     style="position: absolute; top: 175px; left: 284px; height: 77px; width: 40px; background-image: url(icons/shrunk/shrunk/CU2.png); background-size: 40px 77px; z-index: 10;"></div>
+                <div id="SX"
+                     style="position: absolute; top: 367px; left: 355px; height: 38px; width: 38px; background-image: url(icons/shrunk/shrunk/SX2.png); background-size: 38px 38px; z-index: 10;"
+                     data-variation="wide" data-position="left center"></div>
+                <div id="ALUCU"
+                     style="position: absolute; top: 376px; left: 509px; height: 53px; width: 27px; background-image: url(icons/shrunk/shrunk/ALUCU2.png); background-size: 27px 53px; z-index: 10;"></div>
+                <div id="ALU"
+                     style="position: absolute; top: 85px; left: 501px; height: 77px; width: 77px; background-image: url(icons/shrunk/shrunk/ALU2.png); background-size: 77px 77px; z-index: 10;"></div>
+                <div id="SL2"
+                     style="position: absolute; top: 126px; left: 395px; height: 44px; width: 44px; background-image: url(icons/shrunk/shrunk/SL21.png); background-size: 44px 44px; z-index: 10;"
+                     data-variation="wide"></div>
+                <div id="ALUz"
+                     style="position: absolute; top: 281px; left: 485px; height: 77px; width: 77px; background-image: url(icons/shrunk/shrunk/ALUz2.png); background-size: 77px 77px; z-index: 10;"></div>
+                <div id="AND"
+                     style="position: absolute; top: 192px; left: 590px; height: 36px; width: 37px; background-image: url(icons/shrunk/shrunk/AND2.png); background-size: 37px 36px; z-index: 10;"></div>
+                <div id="MUX1"
+                     style="position: absolute; top: 89px; left: 645px; height: 51px; width: 24px; background-image: url(icons/shrunk/shrunk/MUX1-2.png); background-size: 24px 51px; z-index: 10;"></div>
+                <div id="MUX2"
+                     style="position: absolute; top: 9px; left: 85px; height: 51px; width: 24px; background-image: url(icons/shrunk/shrunk/MUX2-2.png); background-size: 24px 51px; z-index: 10;"></div>
+                <div id="MUX3"
+                     style="position: absolute; top: 310px; left: 230px; height: 51px; width: 24px; background-image: url(icons/shrunk/shrunk/MUX3-2.png); background-size: 24px 51px; z-index: 10;"></div>
+                <div id="MUX4"
+                     style="position: absolute; top: 307px; left: 281px; height: 51px; width: 24px; background-image: url(icons/shrunk/shrunk/MUX4-2.png); background-size: 24px 51px; background-size: 24px 51px; z-index: 10;"></div>
+                <div id="MUX5"
+                     style="position: absolute; top: 311px; left: 448px; height: 51px; width: 24px; background-image: url(icons/shrunk/shrunk/MUX5-2.png); background-size: 24px 51px; z-index: 10;"></div>
+                <div id="MUX6"
+                     style="position: absolute; top: 340px; left: 704px; height: 51px; width: 24px; background-image: url(icons/shrunk/shrunk/MUX6-2.png); background-size: 24px 51px; z-index: 10;"></div>
+                <div id="MUX7"
+                     style="position: absolute; top: 382px; left: 725px; height: 51px; width: 24px; background-image: url(icons/shrunk/shrunk/MUX7-2.png); background-size: 24px 51px; z-index: 10;"></div>
+                <div id="SL22"
+                     style="position: absolute; top: 135px; left: 181px; height: 44px; width: 44px; background-image: url(icons/shrunk/shrunk/SL22.png); background-size: 44px 44px; z-index: 10;"></div>
+                <div id="DM"
+                     style="position: absolute; top: 318px; left: 605px; height: 77px; width: 77px; background-image: url(icons/shrunk/shrunk/DM2.png); background-size: 77px 77px; z-index: 10;"></div>
+                <div id="Concatenator"
+                     style="position: absolute; top: 32px; left: 163px; height: 24px; width: 24px; background-image: url(icons/shrunk/shrunk/Concatenator2.png); background-size: 24px 24px; z-index: 10;"></div>
+
+
+                <div id="addInfo" class="ui floating message"
+                     style="position: absolute; width: 430px; height: 105px; top: 140px; left: 335px; font-size: 12px;">
+                    <img src="icons/shrunk/shrunk/data1.png" style="width: 16px; height: 16px;"><strong>Đường đi: PC > IM > RF > ALU >
+                    MUX<sub><sub>MemtoReg</sub></sub> > MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data2.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > RF > MUX<sub><sub>ALUSrc</sub></sub> > ALU
+                    > MUX<sub><sub>MemtoReg</sub></sub> > MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data3.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > MUX<sub><sub>RegDst</sub></sub> >
+                    MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data4.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > MUX<sub><sub>PCSrc</sub></sub> >
+                    MUX<sub><sub>Jump</sub></sub> > PC</strong>
+                </div>
+
+                <div id="addiInfo" class="ui floating message"
+                     style="position: absolute; width: 430px; height: 105px; top: 140px; left: 335px; font-size: 12px;">
+                    <img src="icons/shrunk/shrunk/data1.png" style="width: 16px; height: 16px;"><strong>Đường đi: PC > IM > RF > ALU >
+                    MUX<sub><sub>MemtoReg</sub></sub> > MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data2.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > SX > MUX<sub><sub>ALUSrc</sub></sub> > ALU
+                    > MUX<sub><sub>MemtoReg</sub></sub> > MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data3.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > MUX<sub><sub>RegDst</sub></sub> >
+                    MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data4.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > MUX<sub><sub>PCSrc</sub></sub> >
+                    MUX<sub><sub>Jump</sub></sub> > PC</strong>
+                </div>
+
+                <div id="lwInfo" class="ui floating message"
+                     style="position: absolute; width: 430px; height: 120px; top: 140px; left: 335px; font-size: 12px;">
+                    <img src="icons/shrunk/shrunk/data1.png" style="width: 16px; height: 16px;"><strong>Đường đi: PC > IM > RF > ALU > DM > MUX<sub><sub>MemtoReg</sub></sub>
+                    > MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data2.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > SX > MUX<sub><sub>ALUSrc</sub></sub> > ALU
+                    > DM > MUX<sub><sub>MemtoReg</sub></sub> > MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data3.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > MUX<sub><sub>RegDst</sub></sub> >
+                    MUX<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data4.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > MUX<sub><sub>PCSrc</sub></sub> >
+                    MUX<sub><sub>Jump</sub></sub> > PC</strong>
+                </div>
+
+                <div id="swInfo" class="ui floating message"
+                     style="position: absolute; width: 430px; height: 105px; top: 140px; left: 335px; font-size: 12px;">
+                    <img src="icons/shrunk/shrunk/data1.png" style="width: 16px; height: 16px;"><strong>Đường đi: PC > IM > RF > ALU > DM<br>
+                    <img src="icons/shrunk/shrunk/data2.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > SX > MUX<sub><sub>ALUSrc</sub></sub> > ALU
+                    > DM<br>
+                    <img src="icons/shrunk/shrunk/data3.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > RF > DM<br>
+                    <img src="icons/shrunk/shrunk/data4.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > MUX<sub><sub>PCSrc</sub></sub> >
+                    MUX<sub><sub>Jump</sub></sub> > PC</strong>
+                </div>
+
+                <div id="beqInfo" class="ui floating message"
+                     style="position: absolute; width: 190px; height: 240px; top: 220px; left: 590px; font-size: 12px; padding: 10px">
+                    <img src="icons/shrunk/shrunk/data1.png" style="width: 16px; height: 16px;"><strong>Đường đi: PC > IM > RF > ALU > AND >
+                    MUX<sub><sub>PCSrc</sub></sub><br>
+                    <img src="icons/shrunk/shrunk/data2.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > RF > MUX<sub><sub>ALUSrc</sub></sub> > ALU
+                    > AND > MUX<sub><sub>PCSrc</sub></sub><br>
+                    <img src="icons/shrunk/shrunk/data3.png" style="width: 16px; height: 16px;">Đường đi: PC > IM > SX > SL2 > ALU >
+                    MUX<sub><sub>PCSrc</sub></sub> > MUX<sub><sub>Jump</sub></sub> > PC<br>
+                    <img src="icons/shrunk/shrunk/data4.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > ALU > MUX<sub><sub>PCSrc</sub></sub> >
+                    MUX<sub><sub>Jump</sub></sub> > PC<br>
+                    <img src="icons/shrunk/shrunk/data5.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > MUX<sub><sub>PCSrc</sub></sub> >
+                    MUX<sub><sub>Jump</sub></sub> > PC</strong>
+                </div>
+
+                <div id="jInfo" class="ui floating message"
+                     style="position: absolute; width: 430px; height: 105px; top: 140px; left: 335px; font-size: 12px;">
+                    <img src="icons/shrunk/shrunk/data1.png" style="width: 16px; height: 16px;"><strong>Đường đi: PC > IM > SL2 > Concatenator > Mux<sub><sub>Jump</sub></sub>
+                    > PC<br>
+                    <img src="icons/shrunk/shrunk/data2.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > Concatenator >
+                    Mux<sub><sub>Jump</sub></sub> > PC</strong>
+                </div>
+
+                <div id="jalInfo" class="ui floating message"
+                     style="position: absolute; width: 430px; height: 105px; top: 140px; left: 335px; font-size: 12px;">
+                    <img src="icons/shrunk/shrunk/data1.png" style="width: 16px; height: 16px;"><strong>Đường đi: PC > IM > SL2 > Concatenator > Mux<sub><sub>Jump</sub></sub>
+                    > PC<br>
+                    <img src="icons/shrunk/shrunk/data2.png" style="width: 16px; height: 16px;">Đường đi: PC > Adder > Concatenator >
+                    Mux<sub><sub>Jump</sub></sub> > PC<br>
+                    <img src="icons/shrunk/shrunk/data3.png" style="width: 16px; height: 16px;">Đường đi: Mux<sub><sub>JAL</sub></sub> > RF<br>
+                    <img src="icons/shrunk/shrunk/data4.png" style="width: 16px; height: 16px;">Đường đi: Mux<sub><sub>JAL</sub></sub> > RF</strong>
+                </div>
+
+
+                <div id="addData1"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data1.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="addData2"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data2.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="addData3"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data3.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="addData4"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data4.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+
+                <div id="addiData1"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data1.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="addiData2"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data2.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="addiData3"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data3.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="addiData4"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data4.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+
+                <div id="lwData1"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data1.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="lwData2"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data2.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="lwData3"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data3.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="lwData4"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data4.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+
+                <div id="swData1"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data1.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="swData2"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data2.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="swData3"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data3.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="swData4"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data4.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+
+                <div id="beqData1"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data1.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="beqData2"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data2.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="beqData3"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data3.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="beqData4"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data4.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="beqData5"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data5.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+
+                <div id="jData1"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data1.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="jData2"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data2.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+
+                <div id="jalData1"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data1.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="jalData2"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data2.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="jalData3"
+                     style="position: absolute; top: 337px; left: 52px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data3.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+                <div id="jalData4"
+                     style="position: absolute; top: 334px; left: 259px; height: 16px; width: 16px; background-image: url(icons/shrunk/shrunk/data4.png); background-size: 16px 16px; z-index: 5;"
+                     class="data"></div>
+
+                <div class="ui horizontal segments">
+                    <div class="ui segment" align="center">
+                        <button class="ui inverted red button" id="add">ADD, SUB,<br> AND, OR,<br> SLT</button>
+                    </div>
+                    <div class="ui segment" align="center">
+                        <button class="ui inverted orange button" id="addi">ADDI</button>
+                    </div>
+                    <div class="ui segment" align="center">
+                        <button class="ui inverted yellow button" id="lw">LW</button>
+                    </div>
+                    <div class="ui segment" align="center">
+                        <button class="ui inverted green button" id="sw">SW</button>
+                    </div>
+                    <div class="ui segment" align="center">
+                        <button class="ui inverted blue button" id="beq">BEQ</button>
+                    </div>
+                    <div class="ui segment" align="center">
+                        <button class="ui inverted violet button" id="j">J</button>
+                    </div>
+                    <div class="ui segment" align="center">
+                        <button class="ui inverted purple button" id="jal">JAL</button>
+                    </div>
+                </div>
+
+                <div class="ui icon message"><i class="fork rotated circle icon"></i>
+                    <div class="content">
+                        <div class="header">Tính toán đường dẫn quan trọng</div>
+                        Chế độ xem mặc định mô tả từng bước của một đường truyền dữ liệu có thể chạy tất cả các lệnh,
+                        và trong mỗi <br>nút là một chế độ xem riêng của đường truyền dữ liệu tối thiểu cho lệnh tương ứng.
+                        <p></p>
+                        Với kiến thức về các thiết bị cần thiết cho mỗi lệnh, nếu độ trễ của từng thiết bị được cung cấp,
+                        có thể tính toán<br> đường đi quan trọng thông qua phép cộng đơn giản.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/f61217a453d065015090cd27fd6fb2c2"> </a></body>

@@ -1,0 +1,378 @@
+
+<html>
+<head><title>MIPS 101</title>
+
+    <script language="javascript" src="jquery.min.js"></script>
+
+    <script language="javascript" src="jquery-ui.min.js"></script>
+    <script language="javascript" src="jquery.ui.touch-punch.min.js"></script>
+    <script language="javascript" src="semantic.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+
+    <style>
+
+        td {
+            padding: 5px;
+            text-align: center;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        $(init);
+
+        function init() {
+
+            counter = 0;
+
+            $('.ui.accordion')
+                    .accordion()
+            ;
+
+            $('.tools')
+                    .popup({
+                        on: 'click'
+                    })
+            ;
+
+            $('.ui.basic.modal')
+                    .modal('show')
+            ;
+
+            $('#dALU').data('type', 1).attr('type', 1).draggable(
+                    {
+                        cursor: 'move',
+                        revert: true,
+                    });
+
+            $('#dIM').data('type', 2).attr('type', 2).draggable(
+                    {
+                        cursor: 'move',
+                        revert: true,
+                    });
+
+            $('#dPC').data('type', 3).attr('type', 3).draggable(
+                    {
+                        cursor: 'move',
+                        revert: true,
+                    });
+
+            $('#dMUX').data('type', 4).attr('type', 4).draggable(
+                    {
+                        cursor: 'move',
+                        revert: true,
+                    });
+
+            $('#dRF').data('type', 5).attr('type', 5).draggable(
+                    {
+                        cursor: 'move',
+                        revert: true,
+                    });
+
+            $('#dCU').data('type', 6).attr('type', 6).draggable(
+                    {
+                        cursor: 'move',
+                        revert: true,
+                    });
+
+            $('#dAdder').data('type', 7).attr('type', 7).draggable(
+                    {
+                        cursor: 'move',
+                        revert: true,
+                    });
+
+            $('#ALU').data('type', 1).attr('type', 1).droppable(
+                    {
+                        hoverClass: 'hovered',
+                        drop: check
+                    });
+
+
+            $('#IM').data('type', 2).attr('type', 2).droppable(
+                    {
+                        hoverClass: 'hovered',
+                        drop: check
+                    });
+
+
+            $('#PC').data('type', 3).attr('type', 3).droppable(
+                    {
+                        hoverClass: 'hovered',
+                        drop: check
+                    });
+
+
+            $('#MUX').data('type', 4).attr('type', 4).droppable(
+                    {
+                        hoverClass: 'hovered',
+                        drop: check
+                    });
+
+            $('#RF').data('type', 5).attr('type', 5).droppable(
+                    {
+                        hoverClass: 'hovered',
+                        drop: check
+                    });
+
+            $('#CU').data('type', 6).attr('type', 6).droppable(
+                    {
+                        hoverClass: 'hovered',
+                        drop: check
+                    });
+
+            $('#Adder').data('type', 7).attr('type', 7).droppable(
+                    {
+                        hoverClass: 'hovered',
+                        drop: check
+                    });
+        }
+
+
+        function check(event, ui) {
+
+            var placement = $(this).data('type');
+            var movingObject = ui.draggable.data('type');
+
+            if (placement == movingObject) {
+                ui.draggable.draggable('disable');
+                $(this).droppable('disable');
+                $(this).css("background-image", "");
+                ui.draggable.position({
+                    of: $(this),
+                    my: 'center',
+                    at: 'center',
+                    using: function (css, calc) {
+                        $(this).animate(css, 200, "linear");
+                    }
+                });
+                ui.draggable.draggable('option', 'revert', false);
+                counter = counter + 1;
+                if (counter == 7) {
+                    alert('Chúc mừng!');
+                }
+            }
+            else {
+                alert('Hãy thử lại lần nữa');
+            }
+        }
+
+
+    </script>
+
+    <script>
+
+
+    </script>
+
+</head>
+<body style="background-color: #F2F2F2;">
+
+
+<div align="center"><a href="index.html"><img src="banner2.png"></a></div>
+
+<div class="ui grid">
+    <div class="one wide column"></div>
+
+    <div class="three wide column">
+        <div class="ui vertical accordion menu">
+            <div class="item">
+                <a class="active title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R
+                </a>
+                <div class="active content">
+                    <div class="menu"><a class="active item" href="rDatapath.html">Đường dẫn cơ bản</a>
+                        <a class="item" href="addInstruction.html">Lệnh ADD</a>
+                        <a class="item" href="subInstruction.html">Lệnh SUB</a>
+                        <a class="item" href="andInstruction.html">Lệnh AND</a>
+                        <a class="item" href="orInstruction.html">Lệnh OR</a>
+                        <a class="item" href="sltInstruction.html">Lệnh SLT</a>
+                        <a class="item" href="jrInstruction.html">Lệnh JR</a>
+                        <a class="item" href="rTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh R</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Đường dẫn dữ liệu lệnh R & I
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="riDatapath.html">Đường dẫn nâng cao</a>
+                        <a class="item" href="addiInstruction.html">Lệnh ADDI</a>
+                        <a class="item" href="lwInstruction.html">Lệnh LW</a>
+                        <a class="item" href="swInstruction.html">Lệnh SW</a>
+                        <a class="item" href="beqInstruction.html">Lệnh BEQ</a>
+                        <a class="item" href="iTypeSimulatorInput.html">Trình mô phỏng nhóm lệnh I</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Lệnh Jump 
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="jmpInstruction.html">Lệnh J</a>
+                        <a class="item" href="jalInstruction.html">Lệnh JAL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title">
+                    <i class="dropdown icon"></i> Công cụ
+                </a>
+                <div class="content">
+                    <div class="menu">
+                        <a class="item" href="multipathDelay.html">Bộ hiển thị độ trễ đa đường (Multipath delay displayer)</a>
+                        <a class="item" href="instruction.html">Các lệnh 101</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <a class="title" href="rijTypeSimulatorInput.html">
+                    Trình mô phỏng lệnh R/I/J
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="eleven wide column">
+
+        <div class="ui piled compact segment">
+
+            <div id="content" align="center">
+
+                <div class="ui segment">
+                    <p>Đường dữ liệu (datapath) chỉ cho phép các lệnh dạng R là một đường dữ liệu đơn giản. <br>Trong bài tập này, chúng
+                        ta sẽ tìm hiểu về các thành phần khác nhau của nó.</p>
+                </div>
+
+
+                <div style="position:relative" align="left">
+                    <img src="datapaths/datapath2.png" style="width: 775px; height: 450px;">
+                    <div id="Adder"
+                         style="position: absolute; top: 165px; left: 234px; height: 102px; width: 51px; background-image: url(icon5.png); z-index: 2;"></div>
+
+                    <div id="MUX"
+                         style="position: absolute; top: 11px; left: 252px; height: 102px; width: 51px; background-image: url(icon5.png); z-index: 2;"></div>
+
+                    <div id="IM"
+                         style="position: absolute; top: 340px; left: 242px; height: 102px; width: 51px; background-image: url(icon5.png); z-index: 2;"></div>
+
+                    <div id="PC"
+                         style="position: absolute; top: 339px; left: 71px; height: 102px; width: 51px; background-image: url(icon5.png); z-index: 2;"></div>
+
+                    <div id="RF"
+                         style="position: absolute; top: 183px; left: 484px; height: 102px; width: 51px; background-image: url(icon5.png); z-index: 2;"></div>
+
+                    <div id="ALU"
+                         style="position: absolute; top: 182px; left: 660px; height: 102px; width: 51px; background-image: url(icon5.png); z-index: 2;"></div>
+
+                    <div id="CU"
+                         style="position: absolute; top: 57px; left: 400px; height: 102px; width: 51px; background-image: url(icon5.png); z-index: 2;"></div>
+
+
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="dAdder" style="
+                                    background-image:url(icons/Adder2.png);
+                                    background-size: 102px 102px;
+                                    height:102px;
+                                    width:102px;
+                                    z-index:3;
+                                    " class="tools"
+                                     data-content="Bộ cộng (Adder) là một bộ logic số học (ALU) tăng giá trị PC hiện tại lên một lượng cố định mỗi chu kỳ. Điều này tạo ra giá trị PC tiếp theo.">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="dMUX" style="
+                                    background-image:url(icons/MUX2.png);
+                                    background-size: 102px 102px;
+                                    height:102px;
+                                    width:102px;
+                                    z-index:3;
+                                    " class="tools"
+                                     data-content="MUX, hay Bộ chọn, là một thiết bị hoạt động như một công tắc. Trong trường hợp của một bộ chọn 2-đầu-vào-1-đầu-ra - một trong hai dòng được kết nối làm đầu ra, được xác định bởi bộ chọn.">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="dIM" style="
+                                    background-image:url(icons/IM2.png);
+                                    background-size: 102px 102px;
+                                    height:102px;
+                                    width:102px;
+                                    z-index:3;
+                                    " class="tools" data-content="IM, hay Bộ nhớ lệnh, là một bộ lưu trữ lệnh hiện tại.">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="dALU" style="
+                                    background-image:url(icons/ALU2.png);
+                                    background-size: 102px 102px;
+                                    height:102px;
+                                    width:102px;
+                                    z-index:3;
+                                    " class="tools"
+                                    data-content="ALU, hay Bộ logic số học, là một bộ chức năng thực hiện xử lý. Thông thường nó nhận vào hai đầu vào, thực hiện một phép toán số học và tạo ra một đầu ra.">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="dPC" style="
+                                    background-image:url(icons/PC2.png);
+                                    background-size: 102px 102px;
+                                    height:102px;
+                                    width:102px;
+                                    z-index:3;
+                                    " class="tools"
+                                    data-content="PC, hay Bộ đếm chương trình, là một thanh ghi theo dõi trình tự của chương trình.">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="dRF" style="
+                                    background-image:url(icons/RF2.png);
+                                    background-size: 102px 102px;
+                                    height:102px;
+                                    width:102px;
+                                    z-index:3;
+                                    " class="tools"
+                                    data-content="RF, hay Tệp thanh ghi, là một mảng các thanh ghi có thể chứa dữ liệu. Tệp thanh ghi có cả cổng đọc và cổng ghi.">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="dCU" style="
+                                    background-image:url(icons/CU2.png);
+                                    background-size: 102px 102px;
+                                    height:102px;
+                                    width:102px;
+                                    z-index:3;
+                                    " class="tools"
+                                    data-content="CU, hay Bộ điều khiển, là một thiết bị cung cấp tín hiệu điều khiển cho các bộ khác trên đường truyền dữ liệu. Những tín hiệu này hướng dẫn các thiết bị về phản hồi thích hợp với một lệnh.">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <p></p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="ui basic modal">
+        <i class="close icon"></i>
+        <div class="image content">
+            <div class="image">
+                <img class="image" src="tutorial1.png">
+            </div>
+        </div>
+    </div>
+
+
+</body>
